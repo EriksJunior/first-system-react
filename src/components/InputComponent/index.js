@@ -7,6 +7,18 @@ function InputComponent({
   typeInput,
   propsValueInput,
 }) {
+  const { valueInput, setValueInput } = useState({
+    nome: "",
+    cpf: "",
+    endereco: "",
+    bairro: "",
+    numero: "",
+    cidade: "",
+    uf: "",
+    cep: "",
+    funcao: "",
+  });
+
   return (
     <div className={colSize}>
       <div className="input-group-sm" style={{ marginLeft: "10px" }}>
@@ -18,6 +30,7 @@ function InputComponent({
           size="sm"
           id="inputGroup-sizing-sm"
           value={propsValueInput}
+          onChange={({ target }) => setValueInput(...valueInput, target)}
         />
       </div>
     </div>
