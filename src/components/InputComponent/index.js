@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function InputComponent({
   colSize,
@@ -8,16 +8,20 @@ function InputComponent({
   propsValueInput,
 }) {
   const { valueInput, setValueInput } = useState({
-    nome: "",
-    cpf: "",
-    endereco: "",
-    bairro: "",
-    numero: "",
-    cidade: "",
-    uf: "",
-    cep: "",
-    funcao: "",
+    nome: propsValueInput.nome,
+    cpf: propsValueInput.cpf,
+    endereco: propsValueInput.endereco,
+    bairro: propsValueInput.bairro,
+    numero: propsValueInput.numero,
+    cidade: propsValueInput.cidade,
+    uf: propsValueInput.uf,
+    cep: propsValueInput.cep,
+    funcao: propsValueInput.funcao,
   });
+
+  useEffect(() => {
+    console.log(propsValueInput);
+  }, [valueInput]);
 
   return (
     <div className={colSize}>
@@ -30,7 +34,7 @@ function InputComponent({
           size="sm"
           id="inputGroup-sizing-sm"
           value={propsValueInput}
-          onChange={({ target }) => setValueInput(...valueInput, target)}
+          onChange={({ target }) => setValueInput(target.value)}
         />
       </div>
     </div>
