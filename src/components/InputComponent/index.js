@@ -6,22 +6,11 @@ function InputComponent({
   placeholderText,
   typeInput,
   propsValueInput,
+  handle,
 }) {
-  const { valueInput, setValueInput } = useState({
-    nome: propsValueInput.nome,
-    cpf: propsValueInput.cpf,
-    endereco: propsValueInput.endereco,
-    bairro: propsValueInput.bairro,
-    numero: propsValueInput.numero,
-    cidade: propsValueInput.cidade,
-    uf: propsValueInput.uf,
-    cep: propsValueInput.cep,
-    funcao: propsValueInput.funcao,
-  });
-
   useEffect(() => {
     console.log(propsValueInput);
-  }, [valueInput]);
+  }, []);
 
   return (
     <div className={colSize}>
@@ -34,7 +23,7 @@ function InputComponent({
           size="sm"
           id="inputGroup-sizing-sm"
           value={propsValueInput}
-          onChange={({ target }) => setValueInput(target.value)}
+          onChange={handle}
         />
       </div>
     </div>

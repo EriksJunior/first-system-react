@@ -5,16 +5,9 @@ import RowInputComponent from "../RowInputsComponent/index";
 import { useState } from "react";
 
 function Suporte() {
-  const { useInput, setInput } = useState({
+  const [useInput, setInput] = useState({
     nome: "",
     cpf: "",
-    endereco: "",
-    bairro: "",
-    numero: "",
-    cidade: "",
-    uf: "",
-    cep: "",
-    funcao: "",
   });
 
   return (
@@ -28,7 +21,8 @@ function Suporte() {
                 colSize={"col-sm-3"}
                 placeholderText={"Nome"}
                 typeInput={"text"}
-                propsValueInput={"Eriks"}
+                propsValueInput={useInput.nome || ""}
+                handle={(e) => setInput({ ...useInput, nome: e.target.value })}
               />
 
               <InputComponent
