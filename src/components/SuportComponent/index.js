@@ -20,7 +20,7 @@ function Suporte() {
   const [cep, setCep] = useState("");
   const [funcao, setFuncao] = useState("");
 
-  const [dadosCliente, setDadosCliente] = useState({
+  const dataCliente = {
     nome: nome,
     cpf: cpf,
     endereco: endereco,
@@ -30,11 +30,11 @@ function Suporte() {
     uf: uf,
     cep: cep,
     funcao: funcao,
-  });
+  };
 
   function alertarCliente(e) {
     e.preventDefault();
-    return console.log(dadosCliente);
+    return console.log(dataCliente);
   }
 
   return (

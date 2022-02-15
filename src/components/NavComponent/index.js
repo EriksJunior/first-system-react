@@ -22,11 +22,12 @@ function NavComponent() {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a
-                  className="nav-link active"
-                  aria-current="page"
-                  href="/suporte"
-                >
+                <a className="nav-link " aria-current="page" href="/agenda">
+                  Agenda
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link " aria-current="page" href="/suporte">
                   Suporte
                 </a>
               </li>
