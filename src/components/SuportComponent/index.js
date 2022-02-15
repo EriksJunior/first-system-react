@@ -26,8 +26,8 @@ function Suporte() {
                 colSize={"col-sm-3"}
                 placeholderText={"Nome"}
                 typeInput={"text"}
-                value={nome}
-                setValue={setNome}
+                propsValue={nome}
+                propsSetValue={setNome}
               />
 
               <InputComponent
@@ -35,32 +35,32 @@ function Suporte() {
                 colSize={"col-sm-2"}
                 placeholderText={"CPF"}
                 typeInput={"text"}
-                value={cpf}
-                setValue={setCpf}
+                propsValue={cpf}
+                propsSetValue={setCpf}
               />
               <InputComponent
                 labelText={"Endereço"}
                 colSize={"col-sm-3"}
                 placeholderText={"Endereço"}
                 typeInput={"text"}
-                value={endereco}
-                setValue={setEndereco}
+                propsValue={endereco}
+                propsSetValue={setEndereco}
               />
               <InputComponent
                 labelText={"Bairro"}
                 colSize={"col-sm-3"}
                 placeholderText={"Bairro"}
                 typeInput={"text"}
-                value={bairro}
-                setValue={setBairro}
+                propsValue={bairro}
+                propsSetValue={setBairro}
               />
               <InputComponent
                 labelText={"Numero"}
                 colSize={"col-sm-1"}
                 placeholderText={"N°"}
                 typeInput={"text"}
-                value={numero}
-                setValue={setNumero}
+                propsValue={numero}
+                propsSetValue={setNumero}
               />
             </RowInputComponent>
           </div>
@@ -72,32 +72,32 @@ function Suporte() {
                 colSize={"col-sm-2"}
                 placeholderText={"Cidade"}
                 typeInput={"text"}
-                value={cidade}
-                setValue={setCidade}
+                propsValue={cidade}
+                propsSetValue={setCidade}
               />
               <InputComponent
                 labelText={"UF"}
                 colSize={"col-sm-1"}
                 placeholderText={"UF"}
                 typeInput={"text"}
-                value={uf}
-                setValue={setUf}
+                propsValue={uf}
+                propsSetValue={setUf}
               />
               <InputComponent
                 labelText={"CEP"}
                 colSize={"col-sm-2"}
                 placeholderText={"CEP"}
                 typeInput={"text"}
-                value={cep}
-                setValue={setCep}
+                propsValue={cep}
+                propsSetValue={setCep}
               />
               <InputComponent
                 labelText={"Função"}
                 colSize={"col-sm-2"}
                 placeholderText={"Ovasso"}
                 typeInput={"text"}
-                value={funcao}
-                setValue={setFuncao}
+                propsValue={funcao}
+                propsSetValue={setFuncao}
               />
 
               <InputSelectComponent labelText={"Nível"} colSize={"col-sm-2"} />

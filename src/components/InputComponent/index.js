@@ -6,7 +6,7 @@ function InputComponent({
   placeholderText,
   typeInput,
   propsValue,
-  setValue,
+  propsSetValue,
 }) {
   useEffect(() => {
     console.log(propsValue, " meu ovooooooooooooo");
@@ -22,7 +22,7 @@ function InputComponent({
           size="sm"
           id="inputGroup-sizing-sm"
           value={propsValue}
-          onChange={({ target }) => setValue(target.value)}
+          onChange={({ target }) => propsSetValue(target.value)}
         />
       </div>
     </div>
