@@ -20,19 +20,21 @@ function Suporte() {
   const [cep, setCep] = useState("");
   const [funcao, setFuncao] = useState("");
 
+  const [dadosCliente, setDadosCliente] = useState({
+    nome: nome,
+    cpf: cpf,
+    endereco: endereco,
+    bairro: bairro,
+    numero: numero,
+    cidade: cidade,
+    uf: uf,
+    cep: cep,
+    funcao: funcao,
+  });
+
   function alertarCliente(e) {
     e.preventDefault();
-    return console.log(
-      nome,
-      cpf,
-      endereco,
-      bairro,
-      numero,
-      cidade,
-      uf,
-      cep,
-      funcao
-    );
+    return console.log(dadosCliente);
   }
 
   return (
