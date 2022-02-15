@@ -19,6 +19,7 @@ function Suporte() {
   const [uf, setUf] = useState("");
   const [cep, setCep] = useState("");
   const [funcao, setFuncao] = useState("");
+  const [nivel, setNivel] = useState("");
 
   const dataCliente = {
     nome: nome,
@@ -29,10 +30,10 @@ function Suporte() {
     cidade: cidade,
     uf: uf,
     cep: cep,
-    funcao: funcao,
+    nivel: nivel,
   };
 
-  function alertarCliente(e) {
+  function saveCliente(e) {
     e.preventDefault();
     return console.log(dataCliente);
   }
@@ -122,7 +123,11 @@ function Suporte() {
                 propsSetValue={setFuncao}
               />
 
-              {/* <InputSelectComponent labelText={"Nível"} colSize={"col-sm-2"} /> */}
+              <InputSelectComponent
+                labelText={"Nível"}
+                colSize={"col-sm-2"}
+                propsSetValue={setNivel}
+              />
             </RowInputComponent>
           </div>
         </div>
@@ -134,7 +139,7 @@ function Suporte() {
             justifyContent: "end",
           }}
         >
-          <ButtomComponentSave propsAlertarCliente={alertarCliente} />
+          <ButtomComponentSave propsSave={saveCliente} />
           <ButtomComponentClear />
           <ButtomComponentDelete />
         </div>

@@ -1,9 +1,9 @@
-function ButtomComponentSave({ propsAlertarCliente }) {
+function ButtomComponentSave({ propsSave }) {
   return (
     <button
       type="button"
       className="btn btn-success btn-sm"
-      onClick={propsAlertarCliente}
+      onClick={propsSave}
     >
       Salvar
     </button>

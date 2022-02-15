@@ -26,7 +26,7 @@ function InputComponent({
   );
 }
 
-function InputSelectComponent({ labelText, colSize }) {
+function InputSelectComponent({ labelText, colSize, propsSetValue }) {
   return (
     <div className={colSize}>
       <div className="input-group-sm" style={{ marginLeft: "10px" }}>
@@ -35,12 +35,14 @@ function InputSelectComponent({ labelText, colSize }) {
           className="form-select form-select-sm"
           aria-label=".form-select-sm example"
           defaultValue={"Selecionar Nível"}
+          selected
+          onChange={({ target }) => propsSetValue(target.value)}
         >
-          <option selected>Selecionar Nível</option>
-          <option value="1">Em Trainamento</option>
-          <option value="2">Basico</option>
-          <option value="3">Mediano</option>
-          <option value="4">Avançado</option>
+          <option>Selecionar Nível</option>
+          <option value="Em Trainamento">Em Trainamento</option>
+          <option value="Basico">Basico</option>
+          <option value="Mediano">Mediano</option>
+          <option value="Avançado">Avançado</option>
         </select>
       </div>
     </div>
