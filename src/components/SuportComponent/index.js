@@ -3,6 +3,11 @@ import "./SuportComponent.css";
 import { InputComponent, InputSelectComponent } from "../InputComponent/index";
 import RowInputComponent from "../RowInputsComponent/index";
 import { useState } from "react";
+import {
+  ButtomComponentSave,
+  ButtomComponentClear,
+  ButtomComponentDelete,
+} from "../ButtomComponent/index";
 
 function Suporte() {
   const [nome, setNome] = useState("");
@@ -14,6 +19,21 @@ function Suporte() {
   const [uf, setUf] = useState("");
   const [cep, setCep] = useState("");
   const [funcao, setFuncao] = useState("");
+
+  function alertarCliente(e) {
+    e.preventDefault();
+    return console.log(
+      nome,
+      cpf,
+      endereco,
+      bairro,
+      numero,
+      cidade,
+      uf,
+      cep,
+      funcao
+    );
+  }
 
   return (
     <div className="containerGeralSuporte">
@@ -94,15 +114,27 @@ function Suporte() {
               <InputComponent
                 labelText={"Função"}
                 colSize={"col-sm-2"}
-                placeholderText={"Ovasso"}
+                placeholderText={"Função"}
                 typeInput={"text"}
                 propsValue={funcao}
                 propsSetValue={setFuncao}
               />
 
-              <InputSelectComponent labelText={"Nível"} colSize={"col-sm-2"} />
+              {/* <InputSelectComponent labelText={"Nível"} colSize={"col-sm-2"} /> */}
             </RowInputComponent>
           </div>
+        </div>
+
+        <div
+          style={{
+            width: "100%!important",
+            display: "flex",
+            justifyContent: "end",
+          }}
+        >
+          <ButtomComponentSave propsAlertarCliente={alertarCliente} />
+          <ButtomComponentClear />
+          <ButtomComponentDelete />
         </div>
       </CardComponent>
     </div>

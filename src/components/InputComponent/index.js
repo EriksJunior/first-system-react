@@ -11,6 +11,7 @@ function InputComponent({
   useEffect(() => {
     console.log(propsValue, " meu ovooooooooooooo");
   }, [propsValue]);
+
   return (
     <div className={colSize}>
       <div className="input-group-sm" style={{ marginLeft: "10px" }}>
