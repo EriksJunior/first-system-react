@@ -5,8 +5,9 @@ import PageNav from "./Pages/PagNav/index";
 import PageSuporte from "./Pages/PagSuporte";
 ReactDOM.render(
   <React.StrictMode>
-    <PageNav />
     <BrowserRouter>
+      <PageNav />
+
       <Routes>
         <Route path="/suporte" element={<PageSuporte />} />
       </Routes>

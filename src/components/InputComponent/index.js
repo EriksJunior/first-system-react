@@ -5,13 +5,12 @@ function InputComponent({
   labelText,
   placeholderText,
   typeInput,
-  propsValueInput,
-  handle,
+  propsValue,
+  setValue,
 }) {
   useEffect(() => {
-    console.log(propsValueInput);
-  }, []);
-
+    console.log(propsValue, " meu ovooooooooooooo");
+  }, [propsValue]);
   return (
     <div className={colSize}>
       <div className="input-group-sm" style={{ marginLeft: "10px" }}>
@@ -22,8 +21,8 @@ function InputComponent({
           placeholder={placeholderText}
           size="sm"
           id="inputGroup-sizing-sm"
-          value={propsValueInput}
-          onChange={handle}
+          value={propsValue}
+          onChange={({ target }) => setValue(target.value)}
         />
       </div>
     </div>
