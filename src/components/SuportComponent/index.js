@@ -8,6 +8,7 @@ import {
   ButtomComponentClear,
   ButtomComponentDelete,
 } from "../ButtomComponent/index";
+import { http } from "../../config/index";
 
 function Suporte() {
   const [nome, setNome] = useState("");
@@ -33,9 +34,11 @@ function Suporte() {
     nivel: nivel,
   };
 
-  function saveCliente(e) {
+  async function saveCliente(e) {
     e.preventDefault();
-    return console.log(dataCliente);
+    const { data } = await http.post("/cliente", dataCliente);
+    console.log(data);
+    return data;
   }
 
   return (
