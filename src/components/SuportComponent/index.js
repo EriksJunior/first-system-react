@@ -9,7 +9,7 @@ import {
   ButtomComponentDelete,
 } from "../ButtomComponent/index";
 import ClienteFunctions from "../../service/ClienteService/index";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Suporte() {
@@ -35,8 +35,6 @@ function Suporte() {
     cep: cep,
     nivel: nivel,
   };
-
-  const notify = () => toast("Wow so easy!");
 
   return (
     <div className="containerGeralSuporte">
@@ -143,7 +141,7 @@ function Suporte() {
             click={() => ClienteFunctions.saveCliente(dataCliente)}
           />
           <ButtomComponentClear />
-          <ButtomComponentDelete click={notify} />
+          <ButtomComponentDelete />
         </div>
       </CardComponent>
       <ToastContainer />

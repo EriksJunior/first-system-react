@@ -1,5 +1,5 @@
 import { http } from "../../config/index";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 class ClienteFunctions {
@@ -10,12 +10,13 @@ class ClienteFunctions {
       this.ovo();
       return data;
     } catch (error) {
-      console.log(error);
+      toast.error("Ocorreu um erro ao salvar o cliente");
+      console.log(error, "erros save");
     }
   }
 
   ovo() {
-    toast("Wow so easy!");
+    toast("Cliente salvo com sucesso!");
   }
 }
 
