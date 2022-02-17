@@ -8,7 +8,7 @@ import {
   ButtomComponentClear,
   ButtomComponentDelete,
 } from "../ButtomComponent/index";
-import { http } from "../../config/index";
+import ClienteFunctions from "../../service/ClienteService/index";
 
 function Suporte() {
   const [nome, setNome] = useState("");
@@ -34,11 +34,8 @@ function Suporte() {
     nivel: nivel,
   };
 
-  async function saveCliente(e) {
-    e.preventDefault();
-    const { data } = await http.post("/cliente", dataCliente);
-    console.log(data);
-    return data;
+  async function saveClientes() {
+    return await ClienteFunctions.saveCliente(dataCliente);
   }
 
   return (
@@ -142,7 +139,7 @@ function Suporte() {
             justifyContent: "end",
           }}
         >
-          <ButtomComponentSave propsSave={saveCliente} />
+          <ButtomComponentSave random={saveClientes} />
           <ButtomComponentClear />
           <ButtomComponentDelete />
         </div>

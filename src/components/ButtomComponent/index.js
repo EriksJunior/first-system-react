@@ -1,10 +1,6 @@
-function ButtomComponentSave({ propsSave }) {
+function ButtomComponentSave({ random }) {
   return (
-    <button
-      type="button"
-      className="btn btn-success btn-sm"
-      onClick={propsSave}
-    >
+    <button type="button" className="btn btn-success btn-sm" onClick={random}>
       Salvar
     </button>
   );
