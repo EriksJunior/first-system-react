@@ -18,15 +18,18 @@ function ButtomComponentClear() {
   );
 }
 
-function ButtomComponentDelete() {
+function ButtomComponentDelete({ click }) {
   return (
-    <button
-      type="button"
-      className="btn btn-danger btn-sm"
-      style={{ marginLeft: "10px", marginRight: "10px" }}
-    >
-      Deletar
-    </button>
+    <div>
+      <button
+        type="button"
+        className="btn btn-danger btn-sm"
+        style={{ marginLeft: "10px", marginRight: "10px" }}
+        onClick={click}
+      >
+        Deletar
+      </button>
+    </div>
   );
 }
 
