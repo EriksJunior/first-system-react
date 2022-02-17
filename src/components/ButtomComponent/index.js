@@ -1,6 +1,6 @@
-function ButtomComponentSave({ click }) {
+function ButtomComponentSave({ random }) {
   return (
-    <button type="button" className="btn btn-success btn-sm" onClick={click}>
+    <button type="button" className="btn btn-success btn-sm" onClick={random}>
       Salvar
     </button>
   );
@@ -18,14 +18,13 @@ function ButtomComponentClear() {
   );
 }
 
-function ButtomComponentDelete({ click }) {
+function ButtomComponentDelete() {
   return (
     <div>
       <button
         type="button"
         className="btn btn-danger btn-sm"
         style={{ marginLeft: "10px", marginRight: "10px" }}
-        onClick={click}
       >
         Deletar
       </button>

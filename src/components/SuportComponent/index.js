@@ -9,8 +9,6 @@ import {
   ButtomComponentDelete,
 } from "../ButtomComponent/index";
 import ClienteFunctions from "../../service/ClienteService/index";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 function Suporte() {
   const [nome, setNome] = useState("");
@@ -138,13 +136,12 @@ function Suporte() {
           }}
         >
           <ButtomComponentSave
-            click={() => ClienteFunctions.saveCliente(dataCliente)}
+            random={() => ClienteFunctions.saveCliente(dataCliente)}
           />
           <ButtomComponentClear />
           <ButtomComponentDelete />
         </div>
       </CardComponent>
-      <ToastContainer />
     </div>
   );
 }
