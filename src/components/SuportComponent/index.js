@@ -34,10 +34,6 @@ function Suporte() {
     nivel: nivel,
   };
 
-  async function saveClientes() {
-    return await ClienteFunctions.saveCliente(dataCliente);
-  }
-
   return (
     <div className="containerGeralSuporte">
       <CardComponent titleCard={"Cadastro"}>
@@ -139,7 +135,9 @@ function Suporte() {
             justifyContent: "end",
           }}
         >
-          <ButtomComponentSave random={saveClientes} />
+          <ButtomComponentSave
+            click={() => ClienteFunctions.saveCliente(dataCliente)}
+          />
           <ButtomComponentClear />
           <ButtomComponentDelete />
         </div>
