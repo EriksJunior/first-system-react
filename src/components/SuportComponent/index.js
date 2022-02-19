@@ -44,7 +44,6 @@ function Suporte() {
                 <InputComponent
                   labelText={"Nome"}
                   colSize={"col-sm-3"}
-                  placeholderText={"Nome"}
                   typeInput={"text"}
                   propsValue={nome}
                   propsSetValue={setNome}
@@ -53,7 +52,6 @@ function Suporte() {
                 <InputComponent
                   labelText={"CPF"}
                   colSize={"col-sm-2"}
-                  placeholderText={"CPF"}
                   typeInput={"text"}
                   propsValue={cpf}
                   propsSetValue={setCpf}
@@ -61,7 +59,6 @@ function Suporte() {
                 <InputComponent
                   labelText={"Endereço"}
                   colSize={"col-sm-3"}
-                  placeholderText={"Endereço"}
                   typeInput={"text"}
                   propsValue={endereco}
                   propsSetValue={setEndereco}
@@ -69,7 +66,6 @@ function Suporte() {
                 <InputComponent
                   labelText={"Bairro"}
                   colSize={"col-sm-3"}
-                  placeholderText={"Bairro"}
                   typeInput={"text"}
                   propsValue={bairro}
                   propsSetValue={setBairro}
@@ -77,8 +73,6 @@ function Suporte() {
                 <InputComponent
                   labelText={"Numero"}
                   colSize={"col-sm-1"}
-                  placeholderText={"N°"}
-                  typeInput={"text"}
                   propsValue={numero}
                   propsSetValue={setNumero}
                 />
@@ -90,7 +84,6 @@ function Suporte() {
                 <InputComponent
                   labelText={"Cidade"}
                   colSize={"col-sm-2"}
-                  placeholderText={"Cidade"}
                   typeInput={"text"}
                   propsValue={cidade}
                   propsSetValue={setCidade}
@@ -98,15 +91,12 @@ function Suporte() {
                 <InputComponent
                   labelText={"UF"}
                   colSize={"col-sm-1"}
-                  placeholderText={"UF"}
-                  typeInput={"text"}
                   propsValue={uf}
                   propsSetValue={setUf}
                 />
                 <InputComponent
                   labelText={"CEP"}
                   colSize={"col-sm-2"}
-                  placeholderText={"CEP"}
                   typeInput={"text"}
                   propsValue={cep}
                   propsSetValue={setCep}
@@ -114,7 +104,6 @@ function Suporte() {
                 <InputComponent
                   labelText={"Função"}
                   colSize={"col-sm-2"}
-                  placeholderText={"Função"}
                   typeInput={"text"}
                   propsValue={funcao}
                   propsSetValue={setFuncao}
@@ -149,7 +138,7 @@ function Suporte() {
           <div className="buttomSearch">
             <p>
               <a
-                className="btn btn-primary"
+                className="btn btn-primary testeeeeeee"
                 data-bs-toggle="collapse"
                 href="#multiCollapseExample1"
                 role="button"
