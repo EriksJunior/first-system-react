@@ -4,6 +4,11 @@ import { InputComponent, InputSelectComponent } from "../InputComponent/index";
 import RowInputComponent from "../RowInputsComponent/index";
 import { useState } from "react";
 import {
+  AiOutlineCloseSquare,
+  AiOutlineCheckSquare,
+  AiOutlineZoomIn,
+} from "react-icons/ai";
+import {
   ButtomComponentSave,
   ButtomComponentClear,
   ButtomComponentDelete,
@@ -33,10 +38,6 @@ function Suporte() {
     cep: cep,
     nivel: nivel,
   };
-
-  function seila() {
-    alert("meu ovoooooo");
-  }
 
   return (
     <div className="containerGeralSuporte">
@@ -137,60 +138,81 @@ function Suporte() {
           </div>
         </CardComponent>
       </div>
-      <div className="containerSeachCliente">
+      <div className="containerSeachCliente" style={{ width: "100%" }}>
         <div className="dadosCliente">
-          <nav className="navbar ">
-            <div>
-              <button
-                className="btn btn-primary"
-                type="button"
-                data-bs-toggle="collapse"
-                aria-controls="navbarToggleExternalContent"
-                data-bs-target="#navbarToggleExternalContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-                style={{ paddingBottom: "1px", paddingTop: "0px" }}
-                onClick={() => ClienteFunctions.getAllClientes()}
-              >
-                <span style={{ fontSize: "13px" }}>Pesquisar Clientes +</span>
-              </button>
-            </div>
-          </nav>
-
-          <div className="dropDownCliente">
-            <div className="collapse" id="navbarToggleExternalContent">
-              <div className="bg-white p-4">
-                <h5 className="text-dark h4">Collapsed content</h5>
+          <div style={{ width: "50%", display: "flex" }}>
+            <nav className="navbar ">
+              <div style={{ width: "180px" }}>
+                <button
+                  className="btn btn-primary"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  aria-controls="navbarToggleExternalContent"
+                  data-bs-target="#navbarToggleExternalContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  style={{
+                    paddingBottom: "1px",
+                    paddingTop: "0px",
+                    width: "90%",
+                  }}
+                  onClick={() => ClienteFunctions.getAllClientes()}
+                >
+                  <div
+                    style={{
+                      fontSize: "13px",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      width: "100%",
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center" }}>
+                      Pesquisar Funcionarios
+                    </div>
+                  </div>
+                </button>
               </div>
-            </div>
+              <div style={{ display: "flex", justifyContent: "start" }}>
+                <AiOutlineZoomIn style={{ fontSize: "20px" }}></AiOutlineZoomIn>
+              </div>
+            </nav>
           </div>
 
-          <div className="row tablePesquisa">
-            <div className="col">
-              <div
-                className="collapse multi-collapse"
-                id="multiCollapseExample1"
-              >
-                <div className="card card-body">
-                  <div className="dadosTabela">
-                    <table className="table table-bordered border-primary">
-                      <thead>
-                        <tr>
-                          <th scope="col">Nome</th>
-                          <th scope="col">Bairro</th>
-                          <th scope="col">Telefone</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+          <div className="dropDownCliente shadow" style={{ width: "50%" }}>
+            <div className="collapse" id="navbarToggleExternalContent">
+              <div className="bg-white p-4 table-responsive">
+                <table class="table ">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Função</th>
+                      <th scope="col">Nível</th>
+                      <th scope="col">Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Eriks</td>
+                      <td>Programador</td>
+                      <td>Basico</td>
+                      <td>
+                        <AiOutlineCheckSquare
+                          style={{
+                            fontSize: "25px",
+                            color: "green",
+                          }}
+                        ></AiOutlineCheckSquare>
+
+                        <AiOutlineCloseSquare
+                          style={{
+                            fontSize: "25px",
+                            color: "red",
+                          }}
+                        ></AiOutlineCloseSquare>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
