@@ -3,10 +3,11 @@ import "./SuportComponent.css";
 import { InputComponent, InputSelectComponent } from "../InputComponent/index";
 import RowInputComponent from "../RowInputsComponent/index";
 import { useState } from "react";
-import { AiOutlineCloseSquare, AiOutlineCheckSquare } from "react-icons/ai";
-
-import { RiZoomInFill } from "react-icons/ri";
-
+import {
+  AiOutlineCloseSquare,
+  AiOutlineCheckSquare,
+  AiOutlineZoomIn,
+} from "react-icons/ai";
 import {
   ButtomComponentSave,
   ButtomComponentClear,
@@ -172,12 +173,12 @@ function Suporte() {
                 </button>
               </div>
               <div style={{ display: "flex", justifyContent: "start" }}>
-                <RiZoomInFill
+                <AiOutlineZoomIn
                   style={{
                     fontSize: "20px",
                     color: "#0d6efd",
                   }}
-                ></RiZoomInFill>
+                ></AiOutlineZoomIn>
               </div>
             </nav>
           </div>
