@@ -132,34 +132,37 @@ function Suporte() {
             <ButtomComponentSave
               random={() => ClienteFunctions.saveCliente(dataCliente)}
             />
-            <ButtomComponentClear
-              random={() => ClienteFunctions.getAllClientes()}
-            />
+            <ButtomComponentClear />
             <ButtomComponentDelete />
           </div>
         </CardComponent>
       </div>
       <div className="containerSeachCliente">
         <div className="dadosCliente">
-          <div className="buttomSearch">
-            <p>
-              <a
-                className="btn btn-primary testeeeeeee"
+          <nav className="navbar ">
+            <div>
+              <button
+                className="btn btn-primary"
+                type="button"
                 data-bs-toggle="collapse"
-                href="#multiCollapseExample1"
-                role="button"
+                aria-controls="navbarToggleExternalContent"
+                data-bs-target="#navbarToggleExternalContent"
                 aria-expanded="false"
-                aria-controls="multiCollapseExample1"
-                style={{
-                  paddingLeft: "5px",
-                  paddingBottom: "1px",
-                  paddingTop: "1px",
-                  paddingRight: "5px",
-                }}
+                aria-label="Toggle navigation"
+                style={{ paddingBottom: "1px", paddingTop: "0px" }}
+                onClick={() => ClienteFunctions.getAllClientes()}
               >
-                Pesquisar Clientes
-              </a>
-            </p>
+                <span style={{ fontSize: "13px" }}>Pesquisar Clientes +</span>
+              </button>
+            </div>
+          </nav>
+
+          <div className="dropDownCliente">
+            <div className="collapse" id="navbarToggleExternalContent">
+              <div className="bg-white p-4">
+                <h5 className="text-dark h4">Collapsed content</h5>
+              </div>
+            </div>
           </div>
 
           <div className="row tablePesquisa">

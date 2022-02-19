@@ -6,13 +6,12 @@ function ButtomComponentSave({ random }) {
   );
 }
 
-function ButtomComponentClear({ random }) {
+function ButtomComponentClear() {
   return (
     <button
       type="button"
       className="btn btn-secondary btn-sm"
       style={{ marginLeft: "10px" }}
-      onClick={random}
     >
       Limpar
     </button>
