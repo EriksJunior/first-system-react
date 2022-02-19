@@ -144,6 +144,60 @@ function Suporte() {
           </div>
         </CardComponent>
       </div>
+      <div className="containerSeachCliente">
+        <div className="dadosCliente">
+          <div className="buttomSearch">
+            <p>
+              <a
+                className="btn btn-primary"
+                data-bs-toggle="collapse"
+                href="#multiCollapseExample1"
+                role="button"
+                aria-expanded="false"
+                aria-controls="multiCollapseExample1"
+                style={{
+                  paddingLeft: "5px",
+                  paddingBottom: "1px",
+                  paddingTop: "1px",
+                  paddingRight: "5px",
+                }}
+              >
+                Pesquisar Clientes
+              </a>
+            </p>
+          </div>
+
+          <div className="row tablePesquisa">
+            <div className="col">
+              <div
+                className="collapse multi-collapse"
+                id="multiCollapseExample1"
+              >
+                <div className="card card-body">
+                  <div className="dadosTabela">
+                    <table class="table table-bordered border-primary">
+                      <thead>
+                        <tr>
+                          <th scope="col">Nome</th>
+                          <th scope="col">Bairro</th>
+                          <th scope="col">Telefone</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
