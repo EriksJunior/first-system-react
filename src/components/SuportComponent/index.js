@@ -181,7 +181,7 @@ function Suporte() {
           <div className="dropDownCliente shadow" style={{ width: "50%" }}>
             <div className="collapse" id="navbarToggleExternalContent">
               <div className="bg-white p-4 table-responsive">
-                <table class="table ">
+                <table className="table ">
                   <thead>
                     <tr>
                       <th scope="col">Nome</th>
