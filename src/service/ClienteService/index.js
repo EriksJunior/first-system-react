@@ -7,7 +7,7 @@ class ClienteFunctions {
     try {
       const { data } = await http.post("/cliente", dataCliente);
       console.log(data);
-      this.ovo();
+      toast("Cliente salvo com sucesso!!");
       return data;
     } catch (error) {
       toast.error("Ocorreu um erro ao salvar o cliente");
@@ -15,8 +15,13 @@ class ClienteFunctions {
     }
   }
 
-  ovo() {
-    toast("Cliente salvo com sucesso!");
+  async getAllClientes() {
+    try {
+      const { data } = await http.get("/cliente");
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 

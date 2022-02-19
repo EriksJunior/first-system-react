@@ -34,6 +34,10 @@ function Suporte() {
     nivel: nivel,
   };
 
+  function seila() {
+    alert("meu ovoooooo");
+  }
+
   return (
     <div className="containerGeralSuporte">
       <div className="containerSuporte">
@@ -128,7 +132,9 @@ function Suporte() {
             <ButtomComponentSave
               random={() => ClienteFunctions.saveCliente(dataCliente)}
             />
-            <ButtomComponentClear />
+            <ButtomComponentClear
+              random={() => ClienteFunctions.getAllClientes()}
+            />
             <ButtomComponentDelete />
           </div>
         </CardComponent>
@@ -164,7 +170,7 @@ function Suporte() {
               >
                 <div className="card card-body">
                   <div className="dadosTabela">
-                    <table class="table table-bordered border-primary">
+                    <table className="table table-bordered border-primary">
                       <thead>
                         <tr>
                           <th scope="col">Nome</th>
