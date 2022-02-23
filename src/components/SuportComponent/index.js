@@ -26,6 +26,7 @@ function Suporte() {
   const [cep, setCep] = useState("");
   const [funcao, setFuncao] = useState("");
   const [nivel, setNivel] = useState("");
+  const [resultReadClientes, setResultReadClientes] = useState([]);
 
   const dataCliente = {
     nome: nome,
@@ -39,11 +40,9 @@ function Suporte() {
     nivel: nivel,
   };
 
-  let resultReadClientes = [];
-
   async function getCliente() {
-    resultReadClientes = await ClienteFunctions.getAllClientes();
-    console.log(resultReadClientes, "meu ovooooooooooooooo");
+    const result = await ClienteFunctions.getAllClientes();
+    setResultReadClientes(result);
   }
 
   return (
