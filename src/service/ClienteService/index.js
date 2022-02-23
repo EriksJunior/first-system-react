@@ -6,7 +6,6 @@ class ClienteFunctions {
   async saveCliente(dataCliente) {
     try {
       const { data } = await http.post("/cliente", dataCliente);
-      console.log(data);
       toast("Cliente salvo com sucesso!!");
       return data;
     } catch (error) {
@@ -18,7 +17,7 @@ class ClienteFunctions {
   async getAllClientes() {
     try {
       const { data } = await http.get("/cliente");
-      console.log(data);
+      return data;
     } catch (error) {
       console.log(error);
     }

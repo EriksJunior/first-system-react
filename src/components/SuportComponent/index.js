@@ -39,6 +39,13 @@ function Suporte() {
     nivel: nivel,
   };
 
+  let resultReadClientes = [];
+
+  async function getCliente() {
+    resultReadClientes = await ClienteFunctions.getAllClientes();
+    console.log(resultReadClientes, "meu ovooooooooooooooo");
+  }
+
   return (
     <div className="containerGeralSuporte">
       <div className="containerSuporte">
@@ -156,7 +163,7 @@ function Suporte() {
                     paddingTop: "0px",
                     width: "90%",
                   }}
-                  onClick={() => ClienteFunctions.getAllClientes()}
+                  onClick={getCliente}
                 >
                   <div
                     style={{
@@ -196,26 +203,30 @@ function Suporte() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>Eriks</td>
-                      <td>Programador</td>
-                      <td>Basico</td>
-                      <td>
-                        <AiOutlineCheckSquare
-                          style={{
-                            fontSize: "25px",
-                            color: "green",
-                          }}
-                        ></AiOutlineCheckSquare>
+                    {resultReadClientes.map((cliente) => {
+                      return (
+                        <tr key={cliente}>
+                          <td key={cliente.id}>{cliente.nome}</td>
+                          <td key={cliente.id}>
+                            <AiOutlineCheckSquare
+                              style={{
+                                fontSize: "25px",
+                                color: "green",
+                                cursor: "pointer",
+                              }}
+                            ></AiOutlineCheckSquare>
 
-                        <AiOutlineCloseSquare
-                          style={{
-                            fontSize: "25px",
-                            color: "red",
-                          }}
-                        ></AiOutlineCloseSquare>
-                      </td>
-                    </tr>
+                            <AiOutlineCloseSquare
+                              style={{
+                                fontSize: "25px",
+                                color: "red",
+                                cursor: "pointer",
+                              }}
+                            ></AiOutlineCloseSquare>
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
