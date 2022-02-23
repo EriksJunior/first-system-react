@@ -1,9 +1,6 @@
-import { useState, useEffect } from "react";
-
 function InputComponent({
   colSize,
   labelText,
-  placeholderText,
   typeInput,
   propsValue,
   propsSetValue,

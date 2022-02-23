@@ -203,32 +203,32 @@ function Suporte() {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      {resultReadClientes.map((e) => {
-                        return (
-                          <>
-                            <td key={e.id}>{e.nome}</td>
-                            <td key={e.id}>
-                              <AiOutlineCheckSquare
-                                style={{
-                                  fontSize: "25px",
-                                  color: "green",
-                                  cursor: "pointer",
-                                }}
-                              ></AiOutlineCheckSquare>
+                    {resultReadClientes.map((cliente) => {
+                      return (
+                        <tr key={cliente}>
+                          <td>{cliente.nome}</td>
+                          <td>{cliente.nome}</td>
+                          <td>{cliente.nome}</td>
+                          <td key={cliente.id}>
+                            <AiOutlineCheckSquare
+                              style={{
+                                fontSize: "25px",
+                                color: "green",
+                                cursor: "pointer",
+                              }}
+                            ></AiOutlineCheckSquare>
 
-                              <AiOutlineCloseSquare
-                                style={{
-                                  fontSize: "25px",
-                                  color: "red",
-                                  cursor: "pointer",
-                                }}
-                              ></AiOutlineCloseSquare>
-                            </td>
-                          </>
-                        );
-                      })}
-                    </tr>
+                            <AiOutlineCloseSquare
+                              style={{
+                                fontSize: "25px",
+                                color: "red",
+                                cursor: "pointer",
+                              }}
+                            ></AiOutlineCloseSquare>
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
