@@ -203,28 +203,32 @@ function Suporte() {
                     </tr>
                   </thead>
                   <tbody>
-                    {resultReadClientes.map((e) => {
-                      <tr key={e}>
-                        <td key={e.id}>{e.nome}</td>
-                        <td key={e.id}>
-                          <AiOutlineCheckSquare
-                            style={{
-                              fontSize: "25px",
-                              color: "green",
-                              cursor: "pointer",
-                            }}
-                          ></AiOutlineCheckSquare>
+                    <tr>
+                      {resultReadClientes.map((e) => {
+                        return (
+                          <>
+                            <td key={e.id}>{e.nome}</td>
+                            <td key={e.id}>
+                              <AiOutlineCheckSquare
+                                style={{
+                                  fontSize: "25px",
+                                  color: "green",
+                                  cursor: "pointer",
+                                }}
+                              ></AiOutlineCheckSquare>
 
-                          <AiOutlineCloseSquare
-                            style={{
-                              fontSize: "25px",
-                              color: "red",
-                              cursor: "pointer",
-                            }}
-                          ></AiOutlineCloseSquare>
-                        </td>
-                      </tr>;
-                    })}
+                              <AiOutlineCloseSquare
+                                style={{
+                                  fontSize: "25px",
+                                  color: "red",
+                                  cursor: "pointer",
+                                }}
+                              ></AiOutlineCloseSquare>
+                            </td>
+                          </>
+                        );
+                      })}
+                    </tr>
                   </tbody>
                 </table>
               </div>
