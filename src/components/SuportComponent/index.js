@@ -203,29 +203,27 @@ function Suporte() {
                     </tr>
                   </thead>
                   <tbody>
-                    {resultReadClientes.map((cliente) => {
-                      return (
-                        <tr key={cliente}>
-                          <td key={cliente.id}>{cliente.nome}</td>
-                          <td key={cliente.id}>
-                            <AiOutlineCheckSquare
-                              style={{
-                                fontSize: "25px",
-                                color: "green",
-                                cursor: "pointer",
-                              }}
-                            ></AiOutlineCheckSquare>
+                    {resultReadClientes.map((e) => {
+                      <tr key={e}>
+                        <td key={e.id}>{e.nome}</td>
+                        <td key={e.id}>
+                          <AiOutlineCheckSquare
+                            style={{
+                              fontSize: "25px",
+                              color: "green",
+                              cursor: "pointer",
+                            }}
+                          ></AiOutlineCheckSquare>
 
-                            <AiOutlineCloseSquare
-                              style={{
-                                fontSize: "25px",
-                                color: "red",
-                                cursor: "pointer",
-                              }}
-                            ></AiOutlineCloseSquare>
-                          </td>
-                        </tr>
-                      );
+                          <AiOutlineCloseSquare
+                            style={{
+                              fontSize: "25px",
+                              color: "red",
+                              cursor: "pointer",
+                            }}
+                          ></AiOutlineCloseSquare>
+                        </td>
+                      </tr>;
                     })}
                   </tbody>
                 </table>
