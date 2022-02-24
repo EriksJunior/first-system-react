@@ -14,9 +14,10 @@ class ClienteFunctions {
     }
   }
 
-  async getAllClientes() {
+  async getAllClientes(page) {
     try {
-      const { data } = await http.get("/cliente");
+      const { data } = await http.get(`/cliente/${page}`);
+      console.log(page, "ovooooooooooooo");
       return data;
     } catch (error) {
       console.log(error);

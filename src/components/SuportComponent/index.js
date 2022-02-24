@@ -27,6 +27,8 @@ function Suporte() {
   const [funcao, setFuncao] = useState("");
   const [nivel, setNivel] = useState("");
   const [resultReadClientes, setResultReadClientes] = useState([]);
+  const [page, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
 
   const dataCliente = {
     nome: nome,
@@ -39,10 +41,21 @@ function Suporte() {
     cep: cep,
     nivel: nivel,
   };
+  function proximaPagina() {
+    setPage(page + 1);
+    getCliente(page + 1);
+  }
 
-  async function getCliente() {
-    const result = await ClienteFunctions.getAllClientes();
-    setResultReadClientes(result);
+  function paginaAnterior() {
+    setPage(page - 1);
+    getCliente(page - 1);
+  }
+
+  async function getCliente(page) {
+    const result = await ClienteFunctions.getAllClientes(page);
+    console.log(result, "meu ovoooooooooooooooo");
+    setResultReadClientes(result.data);
+    setLastPage(result.meta);
   }
 
   return (
@@ -192,6 +205,51 @@ function Suporte() {
           <div className="dropDownCliente shadow" style={{ width: "50%" }}>
             <div className="collapse" id="navbarToggleExternalContent">
               <div className="bg-white p-4 table-responsive">
+                <div
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                  }}
+                >
+                  <nav aria-label="Page navigation example">
+                    <ul className="pagination">
+                      <li
+                        className={
+                          page === 1 ? "page-item disabled" : "page-item"
+                        }
+                      >
+                        <a
+                          className="page-link"
+                          aria-label="Previous"
+                          onClick={paginaAnterior}
+                        >
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li className="page-item">
+                        <a className="page-link" href="#">
+                          {page}
+                        </a>
+                      </li>
+                      <li
+                        className={
+                          page === lastPage.last_page
+                            ? "page-item disabled"
+                            : "page-item"
+                        }
+                      >
+                        <a
+                          className="page-link"
+                          onClick={proximaPagina}
+                          aria-label="Next"
+                        >
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
                 <table className="table ">
                   <thead>
                     <tr>
@@ -204,7 +262,7 @@ function Suporte() {
                   <tbody>
                     {resultReadClientes.map((cliente) => {
                       return (
-                        <tr key={cliente}>
+                        <tr key={cliente.id}>
                           <td>{cliente.nome}</td>
                           <td>{cliente.nome}</td>
                           <td>{cliente.nome}</td>
