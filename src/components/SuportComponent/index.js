@@ -53,7 +53,6 @@ function Suporte() {
 
   async function getCliente(page) {
     const result = await ClienteFunctions.getAllClientes(page);
-    console.log(result, "meu ovoooooooooooooooo");
     setResultReadClientes(result.data);
     setLastPage(result.meta);
   }
@@ -208,8 +207,6 @@ function Suporte() {
                 <div
                   style={{
                     width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
                   }}
                 >
                   <nav aria-label="Page navigation example">
@@ -256,7 +253,7 @@ function Suporte() {
                       <th scope="col">Nome</th>
                       <th scope="col">Função</th>
                       <th scope="col">Nível</th>
-                      <th scope="col">Ações</th>
+                      <th scope="col">Editar/Excluir</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -266,21 +263,24 @@ function Suporte() {
                           <td>{cliente.nome}</td>
                           <td>{cliente.nome}</td>
                           <td>{cliente.nome}</td>
-                          <td key={cliente.id}>
+                          <td key={cliente.id} style={{ textAlign: "center" }}>
                             <AiOutlineCheckSquare
                               style={{
                                 fontSize: "25px",
                                 color: "green",
                                 cursor: "pointer",
+                                marginRight: "20px",
                               }}
+                              onClick={() => console.log(cliente.id)}
                             ></AiOutlineCheckSquare>
-
                             <AiOutlineCloseSquare
                               style={{
                                 fontSize: "25px",
                                 color: "red",
                                 cursor: "pointer",
+                                marginRight: "25px",
                               }}
+                              onClick={() => console.log(cliente.id)}
                             ></AiOutlineCloseSquare>
                           </td>
                         </tr>
