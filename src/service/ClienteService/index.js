@@ -42,6 +42,17 @@ class ClienteFunctions {
       console.log(error);
     }
   }
+
+  async deleteCliente(id) {
+    try {
+      const { data } = await http.delete(`/cliente/${id}`);
+      toast("Cliente deletado com sucesso!!");
+      return data;
+    } catch (error) {
+      toast.error("Ocorreu um erro ao deletar o cliente");
+      console.log(error);
+    }
+  }
 }
 
 export default new ClienteFunctions();

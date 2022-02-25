@@ -346,7 +346,9 @@ function Suporte() {
                                 cursor: "pointer",
                                 marginLeft: "30px",
                               }}
-                              onClick={() => console.log(cliente.id)}
+                              onClick={() =>
+                                ClienteFunctions.deleteCliente(cliente.id)
+                              }
                             ></AiOutlineCloseSquare>
                           </td>
                         </tr>
