@@ -1,4 +1,6 @@
 function InputComponent({
+  hiddenInput,
+  divHidden,
   colSize,
   labelText,
   typeInput,
@@ -7,7 +9,11 @@ function InputComponent({
 }) {
   return (
     <div className={colSize}>
-      <div className="input-group-sm" style={{ marginLeft: "10px" }}>
+      <div
+        className="input-group-sm"
+        style={{ marginLeft: "10px" }}
+        hidden={divHidden}
+      >
         <label className="col-form-label" style={{ fontSize: "12px" }}>
           {labelText}
         </label>
@@ -16,6 +22,7 @@ function InputComponent({
           className="form-control "
           size="sm"
           id="inputGroup-sizing-sm"
+          hidden={hiddenInput}
           value={propsValue}
           onChange={({ target }) => propsSetValue(target.value)}
           style={{

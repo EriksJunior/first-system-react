@@ -14,10 +14,19 @@ class ClienteFunctions {
     }
   }
 
-  async getAllClientes(page) {
+  async getAllClientesListTable(page) {
     try {
       const { data } = await http.get(`/cliente/${page}`);
-      console.log(page, "ovooooooooooooo");
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async editCliente(id, dataCliente) {
+    try {
+      const { data } = await http.get(`/cliente/edit/${id}`, dataCliente);
+      console.log(data);
       return data;
     } catch (error) {
       console.log(error);

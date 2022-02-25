@@ -16,6 +16,7 @@ import {
 import ClienteFunctions from "../../service/ClienteService/index";
 
 function Suporte() {
+  const [idCliente, setIdCliente] = useState("");
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
   const [endereco, setEndereco] = useState("");
@@ -31,6 +32,7 @@ function Suporte() {
   const [lastPage, setLastPage] = useState(1);
 
   const dataCliente = {
+    id: idCliente,
     nome: nome,
     cpf: cpf,
     endereco: endereco,
@@ -43,18 +45,33 @@ function Suporte() {
   };
   function proximaPagina() {
     setPage(page + 1);
-    getCliente(page + 1);
+    getClientePagination(page + 1);
   }
 
   function paginaAnterior() {
     setPage(page - 1);
-    getCliente(page - 1);
+    getClientePagination(page - 1);
   }
 
-  async function getCliente(page) {
-    const result = await ClienteFunctions.getAllClientes(page);
+  async function getClientePagination(page) {
+    const result = await ClienteFunctions.getAllClientesListTable(page);
     setResultReadClientes(result.data);
     setLastPage(result.meta);
+  }
+
+  async function assignCustomersToInputs(id) {
+    const data = await ClienteFunctions.editCliente(id);
+    setIdCliente(data.id || "");
+    setNome(data.nome || "");
+    setCpf(data.cpf || "");
+    setEndereco(data.endereco || "");
+    setBairro(data.bairro || "");
+    setNumero(data.numero || "");
+    setCidade(data.cidade || "");
+    setUf(data.uf || "");
+    setCep(data.cep || "");
+    setNivel(data.nivel || "");
+    setFuncao(data.funcao || "");
   }
 
   return (
@@ -65,11 +82,19 @@ function Suporte() {
             <div>
               <RowInputComponent>
                 <InputComponent
+                  typeInput={"id"}
+                  propsValue={idCliente}
+                  propsSetValue={setIdCliente}
+                  hiddenInput={true}
+                  divHidden={true}
+                />
+                <InputComponent
                   labelText={"Nome"}
                   colSize={"col-sm-3"}
                   typeInput={"text"}
                   propsValue={nome}
                   propsSetValue={setNome}
+                  hiddenInput={false}
                 />
 
                 <InputComponent
@@ -78,6 +103,7 @@ function Suporte() {
                   typeInput={"text"}
                   propsValue={cpf}
                   propsSetValue={setCpf}
+                  hiddenInput={false}
                 />
                 <InputComponent
                   labelText={"Endereço"}
@@ -85,6 +111,7 @@ function Suporte() {
                   typeInput={"text"}
                   propsValue={endereco}
                   propsSetValue={setEndereco}
+                  hiddenInput={false}
                 />
                 <InputComponent
                   labelText={"Bairro"}
@@ -92,12 +119,14 @@ function Suporte() {
                   typeInput={"text"}
                   propsValue={bairro}
                   propsSetValue={setBairro}
+                  hiddenInput={false}
                 />
                 <InputComponent
                   labelText={"Numero"}
                   colSize={"col-sm-1"}
                   propsValue={numero}
                   propsSetValue={setNumero}
+                  hiddenInput={false}
                 />
               </RowInputComponent>
             </div>
@@ -110,12 +139,14 @@ function Suporte() {
                   typeInput={"text"}
                   propsValue={cidade}
                   propsSetValue={setCidade}
+                  hiddenInput={false}
                 />
                 <InputComponent
                   labelText={"UF"}
                   colSize={"col-sm-1"}
                   propsValue={uf}
                   propsSetValue={setUf}
+                  hiddenInput={false}
                 />
                 <InputComponent
                   labelText={"CEP"}
@@ -123,6 +154,7 @@ function Suporte() {
                   typeInput={"text"}
                   propsValue={cep}
                   propsSetValue={setCep}
+                  hiddenInput={false}
                 />
                 <InputComponent
                   labelText={"Função"}
@@ -130,12 +162,14 @@ function Suporte() {
                   typeInput={"text"}
                   propsValue={funcao}
                   propsSetValue={setFuncao}
+                  hiddenInput={false}
                 />
 
                 <InputSelectComponent
                   labelText={"Nível"}
                   colSize={"col-sm-2"}
                   propsSetValue={setNivel}
+                  hiddenInput={false}
                 />
               </RowInputComponent>
             </div>
@@ -149,7 +183,11 @@ function Suporte() {
             }}
           >
             <ButtomComponentSave
-              random={() => ClienteFunctions.saveCliente(dataCliente)}
+              random={() =>
+                dataCliente.id == ""
+                  ? ClienteFunctions.saveCliente(dataCliente)
+                  : ClienteFunctions.editCliente(dataCliente.id, dataCliente)
+              }
             />
             <ButtomComponentClear />
             <ButtomComponentDelete />
@@ -173,8 +211,11 @@ function Suporte() {
                     paddingBottom: "1px",
                     paddingTop: "0px",
                     width: "90%",
+                    outline: "none",
+                    textDecoration: "none",
+                    boxShadow: true == true ? "none" : true,
                   }}
-                  onClick={getCliente}
+                  onClick={getClientePagination}
                 >
                   <div
                     style={{
@@ -184,7 +225,12 @@ function Suporte() {
                       width: "100%",
                     }}
                   >
-                    <div style={{ display: "flex", alignItems: "center" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
                       Pesquisar Funcionarios
                     </div>
                   </div>
@@ -215,6 +261,7 @@ function Suporte() {
                         className={
                           page === 1 ? "page-item disabled" : "page-item"
                         }
+                        style={{ cursor: "pointer" }}
                       >
                         <a
                           className="page-link"
@@ -235,6 +282,7 @@ function Suporte() {
                             ? "page-item disabled"
                             : "page-item"
                         }
+                        style={{ cursor: "pointer" }}
                       >
                         <a
                           className="page-link"
@@ -269,16 +317,18 @@ function Suporte() {
                                 fontSize: "25px",
                                 color: "green",
                                 cursor: "pointer",
-                                marginRight: "20px",
+                                marginLeft: "-35px",
                               }}
-                              onClick={() => console.log(cliente.id)}
+                              onClick={() =>
+                                assignCustomersToInputs(cliente.id)
+                              }
                             ></AiOutlineCheckSquare>
                             <AiOutlineCloseSquare
                               style={{
                                 fontSize: "25px",
                                 color: "red",
                                 cursor: "pointer",
-                                marginRight: "25px",
+                                marginLeft: "30px",
                               }}
                               onClick={() => console.log(cliente.id)}
                             ></AiOutlineCloseSquare>
