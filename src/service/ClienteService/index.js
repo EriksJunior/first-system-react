@@ -23,12 +23,22 @@ class ClienteFunctions {
     }
   }
 
-  async editCliente(id, dataCliente) {
+  async editCliente(id) {
     try {
-      const { data } = await http.get(`/cliente/edit/${id}`, dataCliente);
-      console.log(data);
+      const { data } = await http.get(`/cliente/edit/${id}`);
       return data;
     } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async updateCliente(id, dataCliente) {
+    try {
+      const { data } = await http.put(`/cliente/${id}`, dataCliente);
+      toast("Cliente atualizado com sucesso!!");
+      return data;
+    } catch (error) {
+      toast.error("Ocorreu um erro ao atualizar o cliente");
       console.log(error);
     }
   }

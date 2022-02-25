@@ -42,11 +42,8 @@ function Suporte() {
     uf: uf,
     cep: cep,
     nivel: nivel,
+    funcao: funcao,
   };
-
-  useEffect(() => {
-    console.log(dataCliente);
-  }, [dataCliente]);
 
   function proximaPagina() {
     setPage(page + 1);
@@ -191,7 +188,7 @@ function Suporte() {
               random={() =>
                 dataCliente.id == ""
                   ? ClienteFunctions.saveCliente(dataCliente)
-                  : ClienteFunctions.editCliente(dataCliente.id, dataCliente)
+                  : ClienteFunctions.updateCliente(dataCliente.id, dataCliente)
               }
             />
             <ButtomComponentClear />
