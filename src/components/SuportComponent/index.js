@@ -2,7 +2,7 @@ import CardComponent from "../CardComponent/index";
 import "./SuportComponent.css";
 import { InputComponent, InputSelectComponent } from "../InputComponent/index";
 import RowInputComponent from "../RowInputsComponent/index";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   AiOutlineCloseSquare,
   AiOutlineCheckSquare,
@@ -43,6 +43,11 @@ function Suporte() {
     cep: cep,
     nivel: nivel,
   };
+
+  useEffect(() => {
+    console.log(dataCliente);
+  }, [dataCliente]);
+
   function proximaPagina() {
     setPage(page + 1);
     getClientePagination(page + 1);
