@@ -2,7 +2,7 @@ import CardComponent from "../CardComponent/index";
 import "./SuportComponent.css";
 import { InputComponent, InputSelectComponent } from "../InputComponent/index";
 import RowInputComponent from "../RowInputsComponent/index";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   AiOutlineCloseSquare,
   AiOutlineCheckSquare,
@@ -74,6 +74,20 @@ function Suporte() {
     setCep(data.cep || "");
     setNivel(data.nivel || "");
     setFuncao(data.funcao || "");
+  }
+
+  function clearDataCliente() {
+    setIdCliente("");
+    setNome("");
+    setCpf("");
+    setEndereco("");
+    setBairro("");
+    setNumero("");
+    setCidade("");
+    setUf("");
+    setCep("");
+    setNivel("");
+    setFuncao("");
   }
 
   return (
@@ -191,7 +205,7 @@ function Suporte() {
                   : ClienteFunctions.updateCliente(dataCliente.id, dataCliente)
               }
             />
-            <ButtomComponentClear />
+            <ButtomComponentClear random={() => clearDataCliente()} />
             <ButtomComponentDelete />
           </div>
         </CardComponent>
@@ -311,8 +325,8 @@ function Suporte() {
                       return (
                         <tr key={cliente.id}>
                           <td>{cliente.nome}</td>
-                          <td>{cliente.nome}</td>
-                          <td>{cliente.nome}</td>
+                          <td>{cliente.funcao}</td>
+                          <td>{cliente.nivel}</td>
                           <td key={cliente.id} style={{ textAlign: "center" }}>
                             <AiOutlineCheckSquare
                               style={{
