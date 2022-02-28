@@ -203,11 +203,7 @@ function Suporte() {
               random={() =>
                 dataCliente.id == ""
                   ? ClienteFunctions.saveCliente(dataCliente)
-                  : ClienteFunctions.updateCliente(
-                      dataCliente.id,
-                      dataCliente,
-                      page
-                    )
+                  : ClienteFunctions.updateCliente(dataCliente.id, dataCliente)
               }
             />
             <ButtomComponentClear random={() => clearDataCliente()} />
