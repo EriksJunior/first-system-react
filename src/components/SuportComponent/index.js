@@ -59,6 +59,7 @@ function Suporte() {
     const result = await ClienteFunctions.getAllClientesListTable(page);
     setResultReadClientes(result.data);
     setLastPage(result.meta);
+    setPage(result.meta.current_page || 1);
   }
 
   async function assignCustomersToInputs(id) {
@@ -202,7 +203,11 @@ function Suporte() {
               random={() =>
                 dataCliente.id == ""
                   ? ClienteFunctions.saveCliente(dataCliente)
-                  : ClienteFunctions.updateCliente(dataCliente.id, dataCliente)
+                  : ClienteFunctions.updateCliente(
+                      dataCliente.id,
+                      dataCliente,
+                      page
+                    )
               }
             />
             <ButtomComponentClear random={() => clearDataCliente()} />
@@ -231,7 +236,7 @@ function Suporte() {
                     textDecoration: "none",
                     boxShadow: true == true ? "none" : true,
                   }}
-                  onClick={getClientePagination}
+                  onClick={() => getClientePagination(page)}
                 >
                   <div
                     style={{
@@ -317,7 +322,14 @@ function Suporte() {
                       <th scope="col">Nome</th>
                       <th scope="col">Função</th>
                       <th scope="col">Nível</th>
-                      <th scope="col">Editar/Excluir</th>
+                      <th
+                        scope="col"
+                        style={{
+                          textAlign: "center",
+                        }}
+                      >
+                        Editar/Excluir
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -327,13 +339,18 @@ function Suporte() {
                           <td>{cliente.nome}</td>
                           <td>{cliente.funcao}</td>
                           <td>{cliente.nivel}</td>
-                          <td key={cliente.id} style={{ textAlign: "center" }}>
+                          <td
+                            key={cliente.id}
+                            style={{
+                              textAlign: "center",
+                            }}
+                          >
                             <AiOutlineCheckSquare
                               style={{
                                 fontSize: "25px",
                                 color: "green",
                                 cursor: "pointer",
-                                marginLeft: "-35px",
+                                marginRight: "10px",
                               }}
                               onClick={() =>
                                 assignCustomersToInputs(cliente.id)
@@ -344,7 +361,7 @@ function Suporte() {
                                 fontSize: "25px",
                                 color: "red",
                                 cursor: "pointer",
-                                marginLeft: "30px",
+                                marginLeft: "10px",
                               }}
                               onClick={() =>
                                 ClienteFunctions.deleteCliente(cliente.id)
