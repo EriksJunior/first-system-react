@@ -14,7 +14,7 @@ function ButtomComponentClear({ random }) {
       style={{ marginLeft: "10px" }}
       onClick={random}
     >
-      Limpar
+      Novo
     </button>
   );
 }

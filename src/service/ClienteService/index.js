@@ -11,6 +11,7 @@ class ClienteFunctions {
     } catch (error) {
       toast.error("Ocorreu um erro ao salvar o cliente");
       console.log(error, "erros save");
+      return null;
     }
   }
 

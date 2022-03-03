@@ -91,6 +91,25 @@ function Suporte() {
     setFuncao("");
   }
 
+  async function saveAndUpdate() {
+    try {
+      if (idCliente === "") {
+        const data = await ClienteFunctions.saveCliente(dataCliente);
+        if (data === null || data === undefined) {
+          console.log("Campos com informações incorretas");
+          return;
+        } else {
+          setIdCliente(data.id);
+        }
+        return data;
+      } else {
+        return ClienteFunctions.updateCliente(dataCliente.id, dataCliente);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="containerGeralSuporte">
       <div className="containerSuporte">
@@ -186,6 +205,7 @@ function Suporte() {
                   labelText={"Nível"}
                   colSize={"col-sm-2"}
                   propsSetValue={setNivel}
+                  propsValue={nivel}
                   hiddenInput={false}
                 />
               </RowInputComponent>
@@ -199,13 +219,7 @@ function Suporte() {
               justifyContent: "end",
             }}
           >
-            <ButtomComponentSave
-              random={() =>
-                dataCliente.id == ""
-                  ? ClienteFunctions.saveCliente(dataCliente)
-                  : ClienteFunctions.updateCliente(dataCliente.id, dataCliente)
-              }
-            />
+            <ButtomComponentSave random={() => saveAndUpdate()} />
             <ButtomComponentClear random={() => clearDataCliente()} />
             <ButtomComponentDelete />
           </div>
