@@ -78,6 +78,10 @@ function Suporte() {
     setFuncao(data.funcao || "");
   }
 
+  function testeFunc() {
+    console.log("somente um testeeeeeeeeeee");
+  }
+
   function clearDataCliente() {
     setIdCliente("");
     setNome("");
@@ -389,7 +393,7 @@ function Suporte() {
           </div>
         </div>
       </div>
-      <ModalComponentConfirm />
+      <ModalComponentConfirm teste={() => testeFunc()} />
     </div>
   );
 }

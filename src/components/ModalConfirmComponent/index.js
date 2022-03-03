@@ -1,4 +1,4 @@
-function ModalComponentConfirm() {
+function ModalComponentConfirm({ teste }) {
   return (
     <>
       <div
@@ -29,7 +29,11 @@ function ModalComponentConfirm() {
               >
                 Fechar
               </button>
-              <button type="button" className="btn btn-danger btn-sm">
+              <button
+                type="button"
+                className="btn btn-danger btn-sm"
+                onClick={teste}
+              >
                 Deletar
               </button>
             </div>
