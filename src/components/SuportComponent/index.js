@@ -1,4 +1,5 @@
 import CardComponent from "../CardComponent/index";
+import ModalComponentConfirm from "../ModalConfirmComponent";
 import "./SuportComponent.css";
 import { InputComponent, InputSelectComponent } from "../InputComponent/index";
 import RowInputComponent from "../RowInputsComponent/index";
@@ -388,6 +389,7 @@ function Suporte() {
           </div>
         </div>
       </div>
+      <ModalComponentConfirm />
     </div>
   );
 }
