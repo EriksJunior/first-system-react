@@ -24,12 +24,12 @@ function ModalComponentConfirm() {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-secondary"
+                className="btn btn-primary btn-sm"
                 data-bs-dismiss="modal"
               >
                 Fechar
               </button>
-              <button type="button" className="btn btn-danger">
+              <button type="button" className="btn btn-danger btn-sm">
                 Deletar
               </button>
             </div>
