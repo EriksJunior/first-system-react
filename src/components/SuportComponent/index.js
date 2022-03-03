@@ -105,10 +105,16 @@ function Suporte() {
           return;
         } else {
           setIdCliente(data.id);
+          getClientePagination(page);
+          return data;
         }
-        return data;
       } else {
-        return ClienteFunctions.updateCliente(dataCliente.id, dataCliente);
+        const data = await ClienteFunctions.updateCliente(
+          dataCliente.id,
+          dataCliente
+        );
+        getClientePagination(page);
+        return data;
       }
     } catch (error) {
       console.log(error);
