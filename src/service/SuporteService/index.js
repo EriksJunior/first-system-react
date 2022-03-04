@@ -6,10 +6,10 @@ class SuporteRegisterFunctions {
   async saveDataSuporte(dataSuporte) {
     try {
       const { data } = await http.post("/suporte", dataSuporte);
-      toast("suporte salvo com sucesso!!");
+      toast("Técnico Cadastrado com sucesso!!");
       return data;
     } catch (error) {
-      toast.error("Ocorreu um erro ao salvar o suporte");
+      toast.error("Ocorreu um erro ao salvar o Técnico");
       console.log(error, "erros save");
       return null;
     }
@@ -39,7 +39,7 @@ class SuporteRegisterFunctions {
       toast("suporte atualizado com sucesso!!");
       return data;
     } catch (error) {
-      toast.error("Ocorreu um erro ao atualizar o suporte");
+      toast.error("Ocorreu um erro ao atualizar o Técnico");
       console.log(error);
     }
   }
@@ -47,10 +47,10 @@ class SuporteRegisterFunctions {
   async deleteSuporte(id) {
     try {
       const { data } = await http.delete(`/suporte/${id}`);
-      toast("suporte deletado com sucesso!!");
+      toast("Técnico deletado com sucesso!!");
       return data;
     } catch (error) {
-      toast.error("Ocorreu um erro ao deletar o suporte");
+      toast.error("Ocorreu um erro ao deletar o Técnico");
       console.log(error);
     }
   }

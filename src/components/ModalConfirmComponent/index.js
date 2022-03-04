@@ -1,4 +1,4 @@
-function ModalComponentConfirm({ teste }) {
+function ModalComponentConfirm({ ...props }) {
   return (
     <>
       <div
@@ -32,7 +32,7 @@ function ModalComponentConfirm({ teste }) {
               <button
                 type="button"
                 className="btn btn-danger btn-sm"
-                onClick={teste}
+                {...props}
               >
                 Sim
               </button>

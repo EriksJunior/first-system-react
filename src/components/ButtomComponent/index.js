@@ -26,8 +26,6 @@ function ButtomComponentDelete({ ...props }) {
         type="button"
         className="btn btn-danger btn-sm"
         style={{ marginLeft: "10px", marginRight: "10px" }}
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
         {...props}
       >
         Deletar

@@ -5,6 +5,8 @@ import { InputComponent, InputSelectComponent } from "../InputComponent/index";
 import RowInputComponent from "../RowInputsComponent/index";
 import { useState } from "react";
 import { AiOutlineCheckSquare, AiOutlineZoomIn } from "react-icons/ai";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   ButtomComponentSave,
   ButtomComponentClear,
@@ -75,10 +77,6 @@ function Suporte() {
     setFuncao(data.funcao || "");
   }
 
-  function testeFunc() {
-    console.log("somente um testeeeeeeeeeee");
-  }
-
   function clearDataSuporte() {
     setIdSuporte("");
     setNome("");
@@ -93,7 +91,7 @@ function Suporte() {
     setFuncao("");
   }
 
-  async function saveAndUpdate() {
+  async function saveAndUpdateDataSuporte() {
     try {
       if (idSuporte === "") {
         const data = await SuporteRegisterFunctions.saveDataSuporte(
@@ -118,6 +116,20 @@ function Suporte() {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  async function deleteDataSuporte() {
+    try {
+      await SuporteRegisterFunctions.deleteSuporte(idSuporte);
+      clearDataSuporte();
+      getSuportePagination(page);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  function checkIfThereIsAnId() {
+    if (idSuporte === "") return toast.error("Nenhum Técnico selecionado!");
   }
 
   return (
@@ -229,10 +241,12 @@ function Suporte() {
               justifyContent: "end",
             }}
           >
-            <ButtomComponentSave onClick={() => saveAndUpdate()} />
+            <ButtomComponentSave onClick={() => saveAndUpdateDataSuporte()} />
             <ButtomComponentClear onClick={() => clearDataSuporte()} />
             <ButtomComponentDelete
-              onClick={() => SuporteRegisterFunctions.deleteSuporte(idSuporte)}
+              data-bs-toggle={idSuporte === "" ? "" : "modal"}
+              data-bs-target={idSuporte === "" ? "" : "#exampleModal"}
+              onClick={() => checkIfThereIsAnId()}
             />
           </div>
         </CardComponent>
@@ -389,7 +403,7 @@ function Suporte() {
           </div>
         </div>
       </div>
-      <ModalComponentConfirm teste={() => testeFunc()} />
+      <ModalComponentConfirm onClick={() => deleteDataSuporte()} />
     </div>
   );
 }
