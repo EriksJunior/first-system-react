@@ -10,7 +10,7 @@ class SuporteRegisterFunctions {
       return data;
     } catch (error) {
       toast.error("Ocorreu um erro ao salvar o Técnico");
-      console.log(error, "erros save");
+      console.log(error);
       return null;
     }
   }
@@ -36,7 +36,7 @@ class SuporteRegisterFunctions {
   async updateDataSuporte(id, dataSuporte) {
     try {
       const { data } = await http.put(`/suporte/${id}`, dataSuporte);
-      toast("suporte atualizado com sucesso!!");
+      toast("Técnico atualizado com sucesso!!");
       return data;
     } catch (error) {
       toast.error("Ocorreu um erro ao atualizar o Técnico");
