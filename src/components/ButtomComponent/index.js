@@ -1,25 +1,25 @@
-function ButtomComponentSave({ random }) {
+function ButtomComponentSave({ ...props }) {
   return (
-    <button type="button" className="btn btn-success btn-sm" onClick={random}>
+    <button type="button" className="btn btn-success btn-sm" {...props}>
       Salvar
     </button>
   );
 }
 
-function ButtomComponentClear({ random }) {
+function ButtomComponentClear({ ...props }) {
   return (
     <button
       type="button"
       className="btn btn-secondary btn-sm"
       style={{ marginLeft: "10px" }}
-      onClick={random}
+      {...props}
     >
       Novo
     </button>
   );
 }
 
-function ButtomComponentDelete() {
+function ButtomComponentDelete({ ...props }) {
   return (
     <div>
       <button
@@ -28,6 +28,7 @@ function ButtomComponentDelete() {
         style={{ marginLeft: "10px", marginRight: "10px" }}
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
+        {...props}
       >
         Deletar
       </button>

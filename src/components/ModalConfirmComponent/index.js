@@ -12,7 +12,7 @@ function ModalComponentConfirm({ teste }) {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
-                Deseja realmente deletar o cliente ?
+                Deseja realmente deletar ?
               </h5>
               <button
                 type="button"
@@ -27,14 +27,14 @@ function ModalComponentConfirm({ teste }) {
                 className="btn btn-primary btn-sm"
                 data-bs-dismiss="modal"
               >
-                Fechar
+                Não
               </button>
               <button
                 type="button"
                 className="btn btn-danger btn-sm"
                 onClick={teste}
               >
-                Deletar
+                Sim
               </button>
             </div>
           </div>

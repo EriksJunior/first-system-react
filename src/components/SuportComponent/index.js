@@ -4,20 +4,16 @@ import "./SuportComponent.css";
 import { InputComponent, InputSelectComponent } from "../InputComponent/index";
 import RowInputComponent from "../RowInputsComponent/index";
 import { useState } from "react";
-import {
-  AiOutlineCloseSquare,
-  AiOutlineCheckSquare,
-  AiOutlineZoomIn,
-} from "react-icons/ai";
+import { AiOutlineCheckSquare, AiOutlineZoomIn } from "react-icons/ai";
 import {
   ButtomComponentSave,
   ButtomComponentClear,
   ButtomComponentDelete,
 } from "../ButtomComponent/index";
-import ClienteFunctions from "../../service/ClienteService/index";
+import SuporteRegisterFunctions from "../../service/SuporteService/index";
 
 function Suporte() {
-  const [idCliente, setIdCliente] = useState("");
+  const [idSuporte, setIdSuporte] = useState("");
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
   const [endereco, setEndereco] = useState("");
@@ -28,12 +24,12 @@ function Suporte() {
   const [cep, setCep] = useState("");
   const [funcao, setFuncao] = useState("");
   const [nivel, setNivel] = useState("");
-  const [resultReadClientes, setResultReadClientes] = useState([]);
+  const [resultReadSuportes, setResultReadSuporte] = useState([]);
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
 
-  const dataCliente = {
-    id: idCliente,
+  const dataSuporte = {
+    id: idSuporte,
     nome: nome,
     cpf: cpf,
     endereco: endereco,
@@ -48,24 +44,25 @@ function Suporte() {
 
   function proximaPagina() {
     setPage(page + 1);
-    getClientePagination(page + 1);
+    getSuportePagination(page + 1);
   }
 
   function paginaAnterior() {
     setPage(page - 1);
-    getClientePagination(page - 1);
+    getSuportePagination(page - 1);
   }
 
-  async function getClientePagination(page) {
-    const result = await ClienteFunctions.getAllClientesListTable(page);
-    setResultReadClientes(result.data);
+  async function getSuportePagination(page) {
+    const result =
+      await SuporteRegisterFunctions.getAllRegisterSuportesListTable(page);
+    setResultReadSuporte(result.data);
     setLastPage(result.meta);
     setPage(result.meta.current_page || 1);
   }
 
   async function assignCustomersToInputs(id) {
-    const data = await ClienteFunctions.editCliente(id);
-    setIdCliente(data.id || "");
+    const data = await SuporteRegisterFunctions.editDataSuporte(id);
+    setIdSuporte(data.id || "");
     setNome(data.nome || "");
     setCpf(data.cpf || "");
     setEndereco(data.endereco || "");
@@ -82,8 +79,8 @@ function Suporte() {
     console.log("somente um testeeeeeeeeeee");
   }
 
-  function clearDataCliente() {
-    setIdCliente("");
+  function clearDataSuporte() {
+    setIdSuporte("");
     setNome("");
     setCpf("");
     setEndereco("");
@@ -98,22 +95,24 @@ function Suporte() {
 
   async function saveAndUpdate() {
     try {
-      if (idCliente === "") {
-        const data = await ClienteFunctions.saveCliente(dataCliente);
+      if (idSuporte === "") {
+        const data = await SuporteRegisterFunctions.saveDataSuporte(
+          dataSuporte
+        );
         if (data === null || data === undefined) {
           console.log("Campos com informações incorretas");
           return;
         } else {
-          setIdCliente(data.id);
-          getClientePagination(page);
+          setIdSuporte(data.id);
+          getSuportePagination(page);
           return data;
         }
       } else {
-        const data = await ClienteFunctions.updateCliente(
-          dataCliente.id,
-          dataCliente
+        const data = await SuporteRegisterFunctions.updateDataSuporte(
+          dataSuporte.id,
+          dataSuporte
         );
-        getClientePagination(page);
+        getSuportePagination(page);
         return data;
       }
     } catch (error) {
@@ -130,8 +129,8 @@ function Suporte() {
               <RowInputComponent>
                 <InputComponent
                   typeInput={"id"}
-                  propsValue={idCliente}
-                  propsSetValue={setIdCliente}
+                  propsValue={idSuporte}
+                  propsSetValue={setIdSuporte}
                   hiddenInput={true}
                   divHidden={true}
                 />
@@ -213,8 +212,8 @@ function Suporte() {
                 />
 
                 <InputSelectComponent
-                  labelText={"Nível"}
-                  colSize={"col-sm-2"}
+                  labelText={"Nível Aprendizado"}
+                  colSize={"col-sm-3 col-md-2 col-lg-2 col-xl-2"}
                   propsSetValue={setNivel}
                   propsValue={nivel}
                   hiddenInput={false}
@@ -230,14 +229,16 @@ function Suporte() {
               justifyContent: "end",
             }}
           >
-            <ButtomComponentSave random={() => saveAndUpdate()} />
-            <ButtomComponentClear random={() => clearDataCliente()} />
-            <ButtomComponentDelete />
+            <ButtomComponentSave onClick={() => saveAndUpdate()} />
+            <ButtomComponentClear onClick={() => clearDataSuporte()} />
+            <ButtomComponentDelete
+              onClick={() => SuporteRegisterFunctions.deleteSuporte(idSuporte)}
+            />
           </div>
         </CardComponent>
       </div>
-      <div className="containerSeachCliente" style={{ width: "100%" }}>
-        <div className="dadosCliente">
+      <div className="containerSeachSuporte" style={{ width: "100%" }}>
+        <div className="dadosSuporte">
           <div style={{ width: "50%", display: "flex" }}>
             <nav className="navbar ">
               <div style={{ width: "180px" }}>
@@ -257,7 +258,7 @@ function Suporte() {
                     textDecoration: "none",
                     boxShadow: true == true ? "none" : true,
                   }}
-                  onClick={() => getClientePagination(page)}
+                  onClick={() => getSuportePagination(page)}
                 >
                   <div
                     style={{
@@ -289,7 +290,7 @@ function Suporte() {
             </nav>
           </div>
 
-          <div className="dropDownCliente shadow" style={{ width: "50%" }}>
+          <div className="dropDownSuporte shadow" style={{ width: "50%" }}>
             <div className="collapse" id="navbarToggleExternalContent">
               <div className="bg-white p-4 table-responsive">
                 <div
@@ -342,26 +343,26 @@ function Suporte() {
                     <tr>
                       <th scope="col">Nome</th>
                       <th scope="col">Função</th>
-                      <th scope="col">Nível</th>
+                      <th scope="col">Nível Aprendizado</th>
                       <th
                         scope="col"
                         style={{
                           textAlign: "center",
                         }}
                       >
-                        Editar/Excluir
+                        Editar
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    {resultReadClientes.map((cliente) => {
+                    {resultReadSuportes.map((suporte) => {
                       return (
-                        <tr key={cliente.id}>
-                          <td>{cliente.nome}</td>
-                          <td>{cliente.funcao}</td>
-                          <td>{cliente.nivel}</td>
+                        <tr key={suporte.id}>
+                          <td>{suporte.nome}</td>
+                          <td>{suporte.funcao}</td>
+                          <td>{suporte.nivel}</td>
                           <td
-                            key={cliente.id}
+                            key={suporte.id}
                             style={{
                               textAlign: "center",
                             }}
@@ -374,20 +375,9 @@ function Suporte() {
                                 marginRight: "10px",
                               }}
                               onClick={() =>
-                                assignCustomersToInputs(cliente.id)
+                                assignCustomersToInputs(suporte.id)
                               }
                             ></AiOutlineCheckSquare>
-                            <AiOutlineCloseSquare
-                              style={{
-                                fontSize: "25px",
-                                color: "red",
-                                cursor: "pointer",
-                                marginLeft: "10px",
-                              }}
-                              onClick={() =>
-                                ClienteFunctions.deleteCliente(cliente.id)
-                              }
-                            ></AiOutlineCloseSquare>
                           </td>
                         </tr>
                       );
