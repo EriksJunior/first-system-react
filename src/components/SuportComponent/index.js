@@ -422,7 +422,7 @@ function Suporte() {
           <CardComponent
             colorTitle={"blue"}
             titleCard={"Dados Técnicos"}
-            font={"monospace"}
+            alignText={"center"}
           >
             <div
               className="dataGeneralTechnical"

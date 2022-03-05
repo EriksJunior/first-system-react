@@ -27,7 +27,7 @@
   margin-top: 20px;
 }
 
-@media (max-width: 510px) {
+@media (max-width: 1030px) and (min-width: 821px) {
   .dataTechnicalByLevel {
     width: 100% !important;
   }
@@ -50,5 +50,15 @@
   .dataSuporte {
     width: 100% !important;
     margin-top: 30px !important;
+  }
+}
+
+@media (max-width: 510px) {
+  .dataTechnicalByLevel {
+    width: 100% !important;
+  }
+  .dataGeneralTechnical {
+    display: flex;
+    flex-direction: column;
   }
 }
