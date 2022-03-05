@@ -5,6 +5,7 @@ import { InputComponent, InputSelectComponent } from "../InputComponent/index";
 import RowInputComponent from "../RowInputsComponent/index";
 import { useState } from "react";
 import { AiOutlineCheckSquare, AiOutlineZoomIn } from "react-icons/ai";
+import { BsPersonLinesFill, BsPersonPlusFill } from "react-icons/bs";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -251,158 +252,275 @@ function Suporte() {
           </div>
         </CardComponent>
       </div>
-      <div className="containerSeachSuporte" style={{ width: "100%" }}>
-        <div className="dadosSuporte">
-          <div style={{ width: "50%", display: "flex" }}>
-            <nav className="navbar ">
-              <div style={{ width: "180px" }}>
-                <button
-                  className="btn btn-primary"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  aria-controls="navbarToggleExternalContent"
-                  data-bs-target="#navbarToggleExternalContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                  style={{
-                    paddingBottom: "1px",
-                    paddingTop: "0px",
-                    width: "90%",
-                    outline: "none",
-                    textDecoration: "none",
-                    boxShadow: true == true ? "none" : true,
-                  }}
-                  onClick={() => getSuportePagination(page)}
-                >
-                  <div
+      <div
+        className="dataSeachSuporte"
+        style={{ width: "100%", height: "70%", display: "flex" }}
+      >
+        <div className="containerSeachSuporte" style={{ width: "49%" }}>
+          <div className="dadosSuporte">
+            <div style={{ width: "100%", display: "flex" }}>
+              <nav className="navbar ">
+                <div style={{ width: "180px" }}>
+                  <button
+                    className="btn btn-primary"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    aria-controls="navbarToggleExternalContent"
+                    data-bs-target="#navbarToggleExternalContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
                     style={{
-                      fontSize: "13px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      width: "100%",
+                      paddingBottom: "1px",
+                      paddingTop: "0px",
+                      width: "90%",
+                      outline: "none",
+                      textDecoration: "none",
+                      boxShadow: true == true ? "none" : true,
                     }}
+                    onClick={() => getSuportePagination(page)}
                   >
                     <div
                       style={{
+                        fontSize: "13px",
                         display: "flex",
-                        alignItems: "center",
+                        justifyContent: "space-between",
+                        width: "100%",
                       }}
                     >
-                      Pesquisar Funcionarios
-                    </div>
-                  </div>
-                </button>
-              </div>
-              <div style={{ display: "flex", justifyContent: "start" }}>
-                <AiOutlineZoomIn
-                  style={{
-                    fontSize: "20px",
-                    color: "#0d6efd",
-                  }}
-                ></AiOutlineZoomIn>
-              </div>
-            </nav>
-          </div>
-
-          <div className="dropDownSuporte shadow" style={{ width: "50%" }}>
-            <div className="collapse" id="navbarToggleExternalContent">
-              <div className="bg-white p-4 table-responsive">
-                <div
-                  style={{
-                    width: "100%",
-                  }}
-                >
-                  <nav aria-label="Page navigation example">
-                    <ul className="pagination">
-                      <li
-                        className={
-                          page === 1 ? "page-item disabled" : "page-item"
-                        }
-                        style={{ cursor: "pointer" }}
-                      >
-                        <a
-                          className="page-link"
-                          aria-label="Previous"
-                          onClick={paginaAnterior}
-                        >
-                          <span aria-hidden="true">&laquo;</span>
-                        </a>
-                      </li>
-                      <li className="page-item">
-                        <a className="page-link" href="#">
-                          {page}
-                        </a>
-                      </li>
-                      <li
-                        className={
-                          page === lastPage.last_page
-                            ? "page-item disabled"
-                            : "page-item"
-                        }
-                        style={{ cursor: "pointer" }}
-                      >
-                        <a
-                          className="page-link"
-                          onClick={proximaPagina}
-                          aria-label="Next"
-                        >
-                          <span aria-hidden="true">&raquo;</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-                <table className="table ">
-                  <thead>
-                    <tr>
-                      <th scope="col">Nome</th>
-                      <th scope="col">Função</th>
-                      <th scope="col">Nível Aprendizado</th>
-                      <th
-                        scope="col"
+                      <div
                         style={{
-                          textAlign: "center",
+                          display: "flex",
+                          alignItems: "center",
                         }}
                       >
-                        Editar
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {resultReadSuportes.map((suporte) => {
-                      return (
-                        <tr key={suporte.id}>
-                          <td>{suporte.nome}</td>
-                          <td>{suporte.funcao}</td>
-                          <td>{suporte.nivel}</td>
-                          <td
-                            key={suporte.id}
-                            style={{
-                              textAlign: "center",
-                            }}
+                        Pesquisar Funcionarios
+                      </div>
+                    </div>
+                  </button>
+                </div>
+                <div style={{ display: "flex", justifyContent: "start" }}>
+                  <AiOutlineZoomIn
+                    style={{
+                      fontSize: "20px",
+                      color: "#0d6efd",
+                    }}
+                  ></AiOutlineZoomIn>
+                </div>
+              </nav>
+            </div>
+
+            <div className="dropDownSuporte shadow" style={{ width: "100%" }}>
+              <div className="collapse" id="navbarToggleExternalContent">
+                <div className="bg-white p-4 table-responsive">
+                  <div
+                    style={{
+                      width: "100%",
+                    }}
+                  >
+                    <nav aria-label="Page navigation example">
+                      <ul className="pagination">
+                        <li
+                          className={
+                            page === 1 ? "page-item disabled" : "page-item"
+                          }
+                          style={{ cursor: "pointer" }}
+                        >
+                          <a
+                            className="page-link"
+                            aria-label="Previous"
+                            onClick={paginaAnterior}
                           >
-                            <AiOutlineCheckSquare
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li className="page-item">
+                          <a className="page-link" href="#">
+                            {page}
+                          </a>
+                        </li>
+                        <li
+                          className={
+                            page === lastPage.last_page
+                              ? "page-item disabled"
+                              : "page-item"
+                          }
+                          style={{ cursor: "pointer" }}
+                        >
+                          <a
+                            className="page-link"
+                            onClick={proximaPagina}
+                            aria-label="Next"
+                          >
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <table className="table ">
+                    <thead>
+                      <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Função</th>
+                        <th scope="col">Nível Aprendizado</th>
+                        <th
+                          scope="col"
+                          style={{
+                            textAlign: "center",
+                          }}
+                        >
+                          Editar
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {resultReadSuportes.map((suporte) => {
+                        return (
+                          <tr key={suporte.id}>
+                            <td>{suporte.nome}</td>
+                            <td>{suporte.funcao}</td>
+                            <td>{suporte.nivel}</td>
+                            <td
+                              key={suporte.id}
                               style={{
-                                fontSize: "25px",
-                                color: "green",
-                                cursor: "pointer",
-                                marginRight: "10px",
+                                textAlign: "center",
                               }}
-                              onClick={() =>
-                                assignCustomersToInputs(suporte.id)
-                              }
-                            ></AiOutlineCheckSquare>
-                          </td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
+                            >
+                              <AiOutlineCheckSquare
+                                style={{
+                                  fontSize: "25px",
+                                  color: "green",
+                                  cursor: "pointer",
+                                  marginRight: "10px",
+                                }}
+                                onClick={() =>
+                                  assignCustomersToInputs(suporte.id)
+                                }
+                              ></AiOutlineCheckSquare>
+                            </td>
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div
+          className="dataSuporte"
+          style={{
+            width: "49%",
+            height: "85%",
+            marginTop: "60px",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <CardComponent
+            colorTitle={"blue"}
+            titleCard={"Dados Técnicos"}
+            font={"monospace"}
+          >
+            <div
+              className="dataGeneralTechnical"
+              style={{
+                width: "100%",
+                display: "flex",
+                height: "100%",
+                flexWrap: "wrap",
+                justifyContent: "space-around",
+              }}
+            >
+              <div
+                className="dataTechnicalByLevel"
+                style={{
+                  height: "auto",
+                  width: "40%",
+                }}
+              >
+                <table
+                  className="table table-sm "
+                  style={{
+                    height: "auto",
+                    backgroundColor: "#f6f5f5",
+                    borderRadius: "2px",
+                    boxShadow: "1px 1px 2px 1px",
+                  }}
+                >
+                  <thead>
+                    <tr>
+                      <th>
+                        <BsPersonLinesFill size={20} color={"green"} />
+                      </th>
+                      <th>
+                        <div>Níveis </div>
+                      </th>
+
+                      <th>/</th>
+
+                      <th>
+                        <div>Técnicos</div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    style={{ fontWeight: "bold", fontFamily: "monospace" }}
+                  >
+                    <tr style={{ textAlign: "center" }}>
+                      <td colSpan="3">Treinamento</td>
+                      <td>25</td>
+                    </tr>
+                    <tr style={{ textAlign: "center" }}>
+                      <td colSpan="3">Básico</td>
+                      <td>25</td>
+                    </tr>
+                    <tr style={{ textAlign: "center" }}>
+                      <td colSpan="3">Mediano</td>
+                      <td>25</td>
+                    </tr>
+                    <tr
+                      style={{
+                        textAlign: "center",
+                      }}
+                    >
+                      <td colSpan="3">Avançado</td>
+                      <td>25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style={{ height: "auto" }}>
+                <table
+                  className="table table-sm "
+                  style={{
+                    height: "auto",
+                    backgroundColor: "#f6f5f5",
+                    borderRadius: "2px",
+                    boxShadow: "1px 1px 2px 1px",
+                  }}
+                >
+                  <thead
+                    style={{ fontWeight: "bold", fontFamily: "monospace" }}
+                  >
+                    <tr>
+                      <th>
+                        <BsPersonPlusFill size={20} color={"green"} />
+                      </th>
+                      <th>Totais de Técnicos</th>
+                      <th>50</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </CardComponent>
+        </div>
       </div>
+
       <ModalComponentConfirm onClick={() => deleteDataSuporte()} />
     </div>
   );

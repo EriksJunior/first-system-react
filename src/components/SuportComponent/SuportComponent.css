@@ -13,7 +13,7 @@
 .containerSeachSuporte {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   margin-top: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -25,4 +25,30 @@
 
 .dadosTabela {
   margin-top: 20px;
+}
+
+@media (max-width: 510px) {
+  .dataTechnicalByLevel {
+    width: 100% !important;
+  }
+  .dataGeneralTechnical {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 820px) {
+  .dataSeachSuporte {
+    display: flex;
+    flex-direction: column;
+  }
+  .containerSeachSuporte {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+  }
+  .dataSuporte {
+    width: 100% !important;
+    margin-top: 30px !important;
+  }
 }
