@@ -3,7 +3,7 @@ import ModalComponentConfirm from "../ModalConfirmComponent";
 import "./SuportComponent.css";
 import { InputComponent, InputSelectComponent } from "../InputComponent/index";
 import RowInputComponent from "../RowInputsComponent/index";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AiOutlineCheckSquare, AiOutlineZoomIn } from "react-icons/ai";
 import { BsPersonLinesFill, BsPersonPlusFill } from "react-icons/bs";
 import { toast } from "react-toastify";
@@ -30,6 +30,7 @@ function Suporte() {
   const [resultReadSuportes, setResultReadSuporte] = useState([]);
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
+  const [dataTechnical, setDataTechnical] = useState([]);
 
   const dataSuporte = {
     id: idSuporte,
@@ -45,6 +46,15 @@ function Suporte() {
     funcao: funcao,
   };
 
+  useEffect(async () => {
+    fetchTechnicalData();
+  }, []);
+
+  async function fetchTechnicalData() {
+    const data = await SuporteRegisterFunctions.fetchCustomerToTechnicalData();
+    setDataTechnical(data);
+  }
+
   function proximaPagina() {
     setPage(page + 1);
     getSuportePagination(page + 1);
@@ -53,6 +63,24 @@ function Suporte() {
   function paginaAnterior() {
     setPage(page - 1);
     getSuportePagination(page - 1);
+  }
+
+  function clearDataSuporte() {
+    setIdSuporte("");
+    setNome("");
+    setCpf("");
+    setEndereco("");
+    setBairro("");
+    setNumero("");
+    setCidade("");
+    setUf("");
+    setCep("");
+    setNivel("");
+    setFuncao("");
+  }
+
+  function checkIfThereIsAnId() {
+    if (idSuporte === "") return toast.error("Nenhum Técnico selecionado!");
   }
 
   async function getSuportePagination(page) {
@@ -78,20 +106,6 @@ function Suporte() {
     setFuncao(data.funcao || "");
   }
 
-  function clearDataSuporte() {
-    setIdSuporte("");
-    setNome("");
-    setCpf("");
-    setEndereco("");
-    setBairro("");
-    setNumero("");
-    setCidade("");
-    setUf("");
-    setCep("");
-    setNivel("");
-    setFuncao("");
-  }
-
   async function saveAndUpdateDataSuporte() {
     try {
       if (idSuporte === "") {
@@ -104,6 +118,7 @@ function Suporte() {
         } else {
           setIdSuporte(data.id);
           getSuportePagination(page);
+          fetchTechnicalData();
           return data;
         }
       } else {
@@ -127,10 +142,6 @@ function Suporte() {
     } catch (error) {
       console.log(error);
     }
-  }
-
-  function checkIfThereIsAnId() {
-    if (idSuporte === "") return toast.error("Nenhum Técnico selecionado!");
   }
 
   return (
@@ -469,26 +480,14 @@ function Suporte() {
                   <tbody
                     style={{ fontWeight: "bold", fontFamily: "monospace" }}
                   >
-                    <tr style={{ textAlign: "center" }}>
-                      <td colSpan="3">Treinamento</td>
-                      <td>25</td>
-                    </tr>
-                    <tr style={{ textAlign: "center" }}>
-                      <td colSpan="3">Básico</td>
-                      <td>25</td>
-                    </tr>
-                    <tr style={{ textAlign: "center" }}>
-                      <td colSpan="3">Mediano</td>
-                      <td>25</td>
-                    </tr>
-                    <tr
-                      style={{
-                        textAlign: "center",
-                      }}
-                    >
-                      <td colSpan="3">Avançado</td>
-                      <td>25</td>
-                    </tr>
+                    {dataTechnical.map((nivel) => {
+                      return (
+                        <tr key={nivel.id} style={{ textAlign: "center" }}>
+                          <td colSpan="3">{nivel.nivel}</td>
+                          <td>{nivel.total}</td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
@@ -506,13 +505,17 @@ function Suporte() {
                   <thead
                     style={{ fontWeight: "bold", fontFamily: "monospace" }}
                   >
-                    <tr>
-                      <th>
-                        <BsPersonPlusFill size={20} color={"green"} />
-                      </th>
-                      <th>Totais de Técnicos</th>
-                      <th>50</th>
-                    </tr>
+                    {dataTechnical.map((tecnicos) => {
+                      return (
+                        <tr key={tecnicos.id}>
+                          <th>
+                            <BsPersonPlusFill size={20} color={"green"} />
+                          </th>
+                          <th>Totais de Técnicos</th>
+                          <th>50</th>
+                        </tr>
+                      );
+                    })}
                   </thead>
                 </table>
               </div>

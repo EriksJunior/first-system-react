@@ -54,6 +54,15 @@ class SuporteRegisterFunctions {
       console.log(error);
     }
   }
+
+  async fetchCustomerToTechnicalData() {
+    try {
+      const { data } = await http.get("/suporte/dados/tecnicos/niveis");
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 export default new SuporteRegisterFunctions();
