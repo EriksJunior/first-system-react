@@ -31,6 +31,7 @@ function Suporte() {
   const [page, setPage] = useState(1);
   const [lastPage, setLastPage] = useState(1);
   const [dataTechnical, setDataTechnical] = useState([]);
+  const [totalTechnicians, setTotalTechnicians] = useState(null);
 
   const dataSuporte = {
     id: idSuporte,
@@ -46,14 +47,17 @@ function Suporte() {
     funcao: funcao,
   };
 
-  useEffect(async () => {
+  useEffect(() => {
     fetchTechnicalData();
   }, []);
 
-  async function fetchTechnicalData() {
-    const data = await SuporteRegisterFunctions.fetchCustomerToTechnicalData();
-    setDataTechnical(data);
-  }
+  useEffect(() => {
+    const valueTec = dataTechnical.reduce((old, current) => {
+      return (old += current.total);
+    }, 0);
+    setTotalTechnicians(valueTec);
+    console.log(valueTec);
+  }, [dataTechnical]);
 
   function proximaPagina() {
     setPage(page + 1);
@@ -81,6 +85,11 @@ function Suporte() {
 
   function checkIfThereIsAnId() {
     if (idSuporte === "") return toast.error("Nenhum Técnico selecionado!");
+  }
+
+  async function fetchTechnicalData() {
+    const data = await SuporteRegisterFunctions.fetchCustomerToTechnicalData();
+    setDataTechnical(data);
   }
 
   async function getSuportePagination(page) {
@@ -118,7 +127,7 @@ function Suporte() {
         } else {
           setIdSuporte(data.id);
           getSuportePagination(page);
-          fetchTechnicalData();
+          this.fetchTechnicalData();
           return data;
         }
       } else {
@@ -286,7 +295,6 @@ function Suporte() {
                       width: "90%",
                       outline: "none",
                       textDecoration: "none",
-                      boxShadow: true == true ? "none" : true,
                     }}
                     onClick={() => getSuportePagination(page)}
                   >
@@ -505,17 +513,13 @@ function Suporte() {
                   <thead
                     style={{ fontWeight: "bold", fontFamily: "monospace" }}
                   >
-                    {dataTechnical.map((tecnicos) => {
-                      return (
-                        <tr key={tecnicos.id}>
-                          <th>
-                            <BsPersonPlusFill size={20} color={"green"} />
-                          </th>
-                          <th>Totais de Técnicos</th>
-                          <th>50</th>
-                        </tr>
-                      );
-                    })}
+                    <tr>
+                      <th>
+                        <BsPersonPlusFill size={20} color={"green"} />
+                      </th>
+                      <th>Totais de Técnicos</th>
+                      <th>{totalTechnicians}</th>
+                    </tr>
                   </thead>
                 </table>
               </div>
