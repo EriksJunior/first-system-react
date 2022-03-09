@@ -432,7 +432,7 @@ function Suporte() {
           className="dataSuporte"
           style={{
             width: "49%",
-            height: "85%",
+            height: "60%",
             marginTop: "60px",
             display: "flex",
             justifyContent: "center",
