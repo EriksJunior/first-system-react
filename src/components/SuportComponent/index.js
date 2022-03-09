@@ -127,7 +127,7 @@ function Suporte() {
         } else {
           setIdSuporte(data.id);
           getSuportePagination(page);
-          this.fetchTechnicalData();
+          fetchTechnicalData();
           return data;
         }
       } else {
@@ -148,6 +148,7 @@ function Suporte() {
       await SuporteRegisterFunctions.deleteSuporte(idSuporte);
       clearDataSuporte();
       getSuportePagination(page);
+      fetchTechnicalData();
     } catch (error) {
       console.log(error);
     }
