@@ -10,7 +10,7 @@ class SuporteRegisterFunctions {
       return data;
     } catch (error) {
       toast.error("Ocorreu um erro ao salvar o Técnico");
-      console.log(error);
+      console.log(error.errors.message);
       return null;
     }
   }
