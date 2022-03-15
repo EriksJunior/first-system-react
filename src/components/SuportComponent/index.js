@@ -122,7 +122,6 @@ function Suporte() {
           dataSuporte
         );
         if (data === null || data === undefined) {
-          console.log("Campos com informações incorretas");
           return;
         } else {
           setIdSuporte(data.id);
@@ -139,7 +138,7 @@ function Suporte() {
         return data;
       }
     } catch (error) {
-      console.log(error.response.data.errors, "meu ovooooooooooooooooooo");
+      console.log(error);
     }
   }
 

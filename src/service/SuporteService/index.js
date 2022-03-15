@@ -9,8 +9,10 @@ class SuporteRegisterFunctions {
       toast("Técnico Cadastrado com sucesso!!");
       return data;
     } catch (error) {
-      toast.error("Ocorreu um erro ao salvar o Técnico");
-      console.log(error.errors.message);
+      const validateErrors = error.response.data.errors;
+      validateErrors.map((e) => {
+        toast.error(e.message);
+      });
       return null;
     }
   }
