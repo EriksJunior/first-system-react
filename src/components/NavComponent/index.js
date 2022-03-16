@@ -21,7 +21,7 @@ function NavComponent() {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="testeee" to={"/cliente"}>
+                <Link className="testeee" to={"/Agenda"}>
                   Agenda
                 </Link>
               </li>

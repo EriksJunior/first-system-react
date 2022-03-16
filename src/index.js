@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import PageNav from "./Pages/PagNav/index";
 import PageSuporte from "./Pages/PagSuporte";
-import PageCliente from "./Pages/PagCliente";
+import PageAgenda from "./Pages/PagAgenda";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -16,7 +16,7 @@ ReactDOM.render(
       <ToastContainer />
       <Routes>
         <Route path="/suporte" element={<PageSuporte />} />
-        <Route path="/cliente" element={<PageCliente />} />
+        <Route path="/Agenda" element={<PageAgenda />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
