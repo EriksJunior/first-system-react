@@ -26,8 +26,18 @@ function NavComponent() {
                 </a>
               </li>
               <li className="nav-item">
+                <a className="nav-link " aria-current="page" href="/agenda">
+                  Cliente
+                </a>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link " aria-current="page" href="/suporte">
                   Suporte
+                </a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link " aria-current="page" href="/cliente">
+                  Cliente
                 </a>
               </li>
               <li className="nav-item">
