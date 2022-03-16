@@ -6,7 +6,7 @@ function NavComponent() {
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            Grupo BMS
+            FCF
           </a>
           <button
             className="navbar-toggler"
@@ -21,13 +21,8 @@ function NavComponent() {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link className="testeee" to={"/agenda"}>
-                  Agenda
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link className="testeee" to={"/cliente"}>
-                  Cliente
+                  Agenda
                 </Link>
               </li>
               <li className="nav-item">

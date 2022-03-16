@@ -1,7 +1,12 @@
 import "./ClienteComponent.css";
 import RowInputsComponent from "../RowInputsComponent";
-import CardComponent from "../CardComponent";
 import { InputComponent } from "../InputComponent";
+import {
+  ButtomComponentSave,
+  ButtomComponentClear,
+  ButtomComponentDelete,
+} from "../ButtomComponent";
+
 function Cliente() {
   return (
     <div className="containerGeralCliente">
@@ -55,7 +60,15 @@ function Cliente() {
               labelText={"CEP"}
             ></InputComponent>
           </RowInputsComponent>
+          <div className="contentGroupButtons">
+            <ButtomComponentSave />
+            <ButtomComponentClear />
+            <ButtomComponentDelete />
+          </div>
         </div>
+      </div>
+      <div>
+        <div>Agenda</div>
       </div>
     </div>
   );

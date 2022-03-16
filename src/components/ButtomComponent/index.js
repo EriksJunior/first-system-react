@@ -1,6 +1,15 @@
 function ButtomComponentSave({ ...props }) {
   return (
-    <button type="button" className="btn btn-success btn-sm" {...props}>
+    <button
+      type="button"
+      style={{
+        backgroundColor: "#71b997",
+        color: "white",
+        border: "1px solid #71b997",
+      }}
+      className="btn btn-success btn-sm"
+      {...props}
+    >
       Salvar
     </button>
   );
@@ -11,7 +20,12 @@ function ButtomComponentClear({ ...props }) {
     <button
       type="button"
       className="btn btn-secondary btn-sm"
-      style={{ marginLeft: "10px" }}
+      style={{
+        marginLeft: "10px",
+        backgroundColor: "#6c6c6c",
+        color: "white",
+        border: "1px solid #6c6c6c",
+      }}
       {...props}
     >
       Novo
@@ -25,7 +39,13 @@ function ButtomComponentDelete({ ...props }) {
       <button
         type="button"
         className="btn btn-danger btn-sm"
-        style={{ marginLeft: "10px", marginRight: "10px" }}
+        style={{
+          marginLeft: "10px",
+          marginRight: "10px",
+          backgroundColor: "#9d5d5d",
+          color: "white",
+          border: "1px solid #9d5d5d",
+        }}
         {...props}
       >
         Deletar

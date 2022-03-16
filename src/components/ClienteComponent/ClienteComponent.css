@@ -17,4 +17,14 @@
   padding: 16px;
   background-color: rgb(233, 233, 233);
   height: auto;
+  border-left: 5px solid rgb(0, 26, 255);
+}
+
+.contentGroupButtons {
+  width: 100% !important;
+  display: flex;
+  justify-content: end;
+  padding-left: 16px;
+  padding-top: 16px;
+  padding-bottom: 0;
 }
