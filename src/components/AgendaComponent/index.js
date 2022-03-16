@@ -1,17 +1,22 @@
 import "./AgendaComponent.css";
 import RowInputsComponent from "../RowInputsComponent";
-import { InputComponent } from "../InputComponent";
+import { InputComponent, InputSelectComponentCliente } from "../InputComponent";
 
 function Agenda() {
   return (
-    <div>
-      <div>
+    <div className="containerInputsAgenda">
+      <div className="contentInputsAgenda">
+        <h5>Agenda</h5>
+        <hr></hr>
         <RowInputsComponent>
-          <InputComponent labelText={"meu ovo"}></InputComponent>
+          <InputSelectComponentCliente
+            colSize={"col-sm-3"}
+            labelText={"Cliente"}
+          />
         </RowInputsComponent>
       </div>
     </div>
   );
 }
 
-export default Agenda();
+export default Agenda;

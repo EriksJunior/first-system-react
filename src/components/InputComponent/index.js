@@ -14,8 +14,11 @@ function InputComponent({
         style={{ marginLeft: "10px" }}
         hidden={divHidden}
       >
-        <label className="col-form-label" style={{ fontSize: "12px" }}>
-          {labelText}
+        <label
+          className="col-form-label"
+          style={{ fontSize: "12px", marginLeft: "2px" }}
+        >
+          <strong>{labelText}</strong>
         </label>
         <input
           type={typeInput}
@@ -46,8 +49,11 @@ function InputSelectComponent({
   return (
     <div className={colSize}>
       <div className="input-group-sm" style={{ marginLeft: "10px" }}>
-        <label className="col-form-label " style={{ fontSize: "12px" }}>
-          {labelText}
+        <label
+          className="col-form-label "
+          style={{ fontSize: "12px", marginLeft: "2px" }}
+        >
+          <strong>{labelText}</strong>
         </label>
         <select
           className="form-select form-select-sm"
@@ -73,4 +79,33 @@ function InputSelectComponent({
   );
 }
 
-export { InputComponent, InputSelectComponent };
+function InputSelectComponentCliente({ labelText, colSize, ...props }) {
+  return (
+    <div className={colSize}>
+      <div className="input-group-sm" style={{ marginLeft: "10px" }}>
+        <label
+          className="col-form-label "
+          style={{ fontSize: "12px", marginLeft: "2px" }}
+        >
+          <strong>{labelText}</strong>
+        </label>
+        <select
+          className="form-select form-select-sm"
+          aria-label=".form-select-sm example"
+          selected
+          {...props}
+          style={{
+            paddingLeft: "5px",
+            paddingBottom: "1px",
+            paddingTop: "1px",
+            paddingRight: "5px",
+          }}
+        >
+          <option>Selecionar...</option>
+        </select>
+      </div>
+    </div>
+  );
+}
+
+export { InputComponent, InputSelectComponent, InputSelectComponentCliente };

@@ -6,6 +6,7 @@ import {
   ButtomComponentClear,
   ButtomComponentDelete,
 } from "../ButtomComponent";
+import Agenda from "../AgendaComponent";
 
 function Cliente() {
   return (
@@ -67,8 +68,9 @@ function Cliente() {
           </div>
         </div>
       </div>
+
       <div>
-        <div>Agenda</div>
+        <Agenda />
       </div>
     </div>
   );

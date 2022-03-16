@@ -1,0 +1,16 @@
+.containerInputsAgenda {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.contentInputsAgenda {
+  border-radius: 10px;
+  width: 80%;
+  margin-top: 40px;
+  padding: 16px;
+  background-color: rgb(233, 233, 233);
+  height: auto;
+  border-left: 5px solid rgb(101, 167, 70);
+}
