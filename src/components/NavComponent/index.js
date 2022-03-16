@@ -21,64 +21,59 @@ function NavComponent() {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link " aria-current="page" href="/agenda">
+                <Link className="testeee" to={"/agenda"}>
                   Agenda
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link " aria-current="page" href="/agenda">
+                <Link className="testeee" to={"/cliente"}>
                   Cliente
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link " aria-current="page" href="/suporte">
+                <Link className="testeee" to={"/suporte"}>
                   Suporte
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link " aria-current="page" href="/cliente">
-                  Cliente
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/telemarketing">
+                <Link className="testeee" to={"/telemarketing"}>
                   Telemarketing
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/financeiro">
+                <Link className="testeee" to={"/financeiro"}>
                   Financeiro
-                </a>
+                </Link>
               </li>
               <li className="nav-item dropdown">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="/gerencia"
+                  to={"/gerencia"}
                   id="navbarDropdownMenuLink"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   Gerencia
-                </a>
+                </Link>
                 <ul
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <a className="dropdown-item" href="/dashboard">
+                    <Link className="dropdown-item" to={"/dashboard"}>
                       DashBoards
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/relatorios">
+                    <Link className="dropdown-item" to={"/relatorios"}>
                       Relatórios
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="/ganho">
+                    <Link className="dropdown-item" to={"/ganho"}>
                       Ganho
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>

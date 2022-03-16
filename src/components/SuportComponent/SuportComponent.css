@@ -27,6 +27,25 @@
   margin-top: 20px;
 }
 
+.testeee {
+  text-decoration: none;
+  outline: none;
+  margin-left: 10px;
+}
+
+li {
+  display: flex !important;
+  align-items: center !important;
+}
+
+li a {
+  color: #9b9d9e;
+}
+
+li a:hover {
+  color: #d6d4d4;
+}
+
 @media (max-width: 1030px) and (min-width: 821px) {
   .dataTechnicalByLevel {
     width: 100% !important;
