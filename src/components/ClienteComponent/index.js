@@ -1,6 +1,6 @@
 import "./ClienteComponent.css";
 import RowInputsComponent from "../RowInputsComponent";
-import { InputComponent } from "../InputComponent";
+import { InputComponent } from "../FormComponents";
 import {
   ButtomComponentSave,
   ButtomComponentClear,

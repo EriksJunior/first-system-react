@@ -1,7 +1,7 @@
 import CardComponent from "../CardComponent/index";
 import ModalComponentConfirm from "../ModalConfirmComponent";
 import "./SuportComponent.css";
-import { InputComponent, InputSelectComponent } from "../InputComponent/index";
+import { InputComponent, InputSelectComponent } from "../FormComponents/index";
 import RowInputComponent from "../RowInputsComponent/index";
 import { useState, useEffect } from "react";
 import { AiOutlineCheckSquare, AiOutlineZoomIn } from "react-icons/ai";

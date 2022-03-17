@@ -22,7 +22,7 @@ function InputComponent({
         </label>
         <input
           type={typeInput}
-          className="form-control "
+          className="form-control"
           size="sm"
           id="inputGroup-sizing-sm"
           hidden={hiddenInput}
@@ -108,4 +108,17 @@ function InputSelectComponentCliente({ labelText, colSize, ...props }) {
   );
 }
 
-export { InputComponent, InputSelectComponent, InputSelectComponentCliente };
+function TextAreaComponent() {
+  return (
+    <div>
+      <h1>ovo</h1>
+    </div>
+  );
+}
+
+export {
+  InputComponent,
+  InputSelectComponent,
+  InputSelectComponentCliente,
+  TextAreaComponent,
+};
