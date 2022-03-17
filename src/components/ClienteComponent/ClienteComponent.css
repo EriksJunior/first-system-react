@@ -29,14 +29,15 @@
   padding-bottom: 0;
 }
 
-.containerInputsAgenda {
-  width: 100%;
-  height: auto;
+.contentAgenda {
   display: flex;
   justify-content: center;
 }
 
-.testeeeeee {
-  width: 100% !important;
-  display: flex;
+@media screen and (max-width: 750px) {
+  .contentAgenda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }

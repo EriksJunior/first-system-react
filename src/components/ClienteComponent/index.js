@@ -69,7 +69,7 @@ function Cliente() {
         </div>
       </div>
 
-      <div className="testeeeeee">
+      <div className="contentAgenda">
         <Agenda />
         <Agenda />
       </div>
