@@ -37,6 +37,18 @@ function Agenda() {
             colSize={"col-sm-6"}
             labelText={"Tipo da Solicitação"}
           />
+
+          <InputSelectComponentCliente
+            colSize={"col-sm-6"}
+            labelText={"Técnico"}
+          />
+
+          <InputSelectComponentCliente
+            colSize={"col-sm-4"}
+            labelText={"Status"}
+            disabled
+            valueOptions={"Espera"}
+          />
         </RowInputsComponent>
 
         <RowInputsComponent>

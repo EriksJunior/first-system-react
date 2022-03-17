@@ -81,7 +81,12 @@ function InputSelectComponent({
   );
 }
 
-function InputSelectComponentCliente({ labelText, colSize, ...props }) {
+function InputSelectComponentCliente({
+  labelText,
+  colSize,
+  valueOptions,
+  ...props
+}) {
   return (
     <div className={colSize}>
       <div className="input-group-sm" style={{ marginLeft: "10px" }}>
@@ -103,7 +108,7 @@ function InputSelectComponentCliente({ labelText, colSize, ...props }) {
             paddingRight: "5px",
           }}
         >
-          <option>Selecionar...</option>
+          <option>{valueOptions}</option>
         </select>
       </div>
     </div>

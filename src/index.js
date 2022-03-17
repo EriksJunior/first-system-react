@@ -8,6 +8,7 @@ import PageAgenda from "./Pages/PagAgenda";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../src/index.css";
 
 ReactDOM.render(
   <React.StrictMode>
