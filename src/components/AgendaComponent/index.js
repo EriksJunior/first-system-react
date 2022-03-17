@@ -27,19 +27,26 @@ function Agenda() {
           />
 
           <InputComponent
-            labelText={"Data Finalização"}
+            labelText={"Inicio Atendimento"}
+            colSize={"col-sm-6"}
+            typeInput={"date"}
+            disabledInput={true}
+          />
+
+          <InputComponent
+            labelText={"Fim Atendimento"}
             colSize={"col-sm-6"}
             typeInput={"date"}
             disabledInput={true}
           />
 
           <InputSelectComponentCliente
-            colSize={"col-sm-6"}
+            colSize={"col-sm-4"}
             labelText={"Tipo da Solicitação"}
           />
 
           <InputSelectComponentCliente
-            colSize={"col-sm-6"}
+            colSize={"col-sm-4"}
             labelText={"Técnico"}
           />
 
