@@ -69,7 +69,8 @@ function Cliente() {
         </div>
       </div>
 
-      <div>
+      <div className="testeeeeee">
+        <Agenda />
         <Agenda />
       </div>
     </div>

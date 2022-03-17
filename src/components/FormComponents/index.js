@@ -6,6 +6,7 @@ function InputComponent({
   typeInput,
   propsValue,
   propsSetValue,
+  disabledInput,
 }) {
   return (
     <div className={colSize}>
@@ -28,6 +29,7 @@ function InputComponent({
           hidden={hiddenInput}
           value={propsValue}
           onChange={({ target }) => propsSetValue(target.value)}
+          disabled={disabledInput}
           style={{
             paddingLeft: "5px",
             paddingBottom: "1px",
@@ -108,10 +110,22 @@ function InputSelectComponentCliente({ labelText, colSize, ...props }) {
   );
 }
 
-function TextAreaComponent() {
+function TextAreaComponent({ labelText, colSize, ...props }) {
   return (
-    <div>
-      <h1>ovo</h1>
+    <div className={colSize}>
+      <div className="input-group-sm" style={{ marginLeft: "10px" }}>
+        <label
+          className="col-form-label "
+          style={{ fontSize: "12px", marginLeft: "2px" }}
+        >
+          <strong>{labelText}</strong>
+        </label>
+        <textarea
+          className="form-control"
+          id="exampleFormControlTextarea1"
+          {...props}
+        ></textarea>
+      </div>
     </div>
   );
 }
