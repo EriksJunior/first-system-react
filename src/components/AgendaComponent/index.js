@@ -1,6 +1,11 @@
 import "./AgendaComponent.css";
 import RowInputsComponent from "../RowInputsComponent";
 import {
+  ButtomComponentClear,
+  ButtomComponentDelete,
+  ButtomComponentSave,
+} from "../ButtomComponent";
+import {
   InputComponent,
   InputSelectComponentCliente,
   TextAreaComponent,
@@ -10,7 +15,7 @@ function Agenda() {
   return (
     <div className="containerInputsAgenda">
       <div className="contentInputsAgenda">
-        <h5>Agenda</h5>
+        <h5>Agendar</h5>
         <hr></hr>
         <RowInputsComponent>
           <InputComponent hiddenInput={"hidden"} divHidden={"hidden"} />
@@ -57,7 +62,6 @@ function Agenda() {
             valueOptions={"Espera"}
           />
         </RowInputsComponent>
-
         <RowInputsComponent>
           <TextAreaComponent
             labelText={"Observação"}
@@ -65,6 +69,10 @@ function Agenda() {
             rows="8"
           />
         </RowInputsComponent>
+        <div className="inputGroupAgenda">
+          <ButtomComponentSave textButton={"Agendar"} />
+          <ButtomComponentClear textButton={"Novo"} />
+        </div>
       </div>
     </div>
   );

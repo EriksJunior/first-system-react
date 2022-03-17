@@ -62,9 +62,9 @@ function Cliente() {
             ></InputComponent>
           </RowInputsComponent>
           <div className="contentGroupButtons">
-            <ButtomComponentSave />
-            <ButtomComponentClear />
-            <ButtomComponentDelete />
+            <ButtomComponentSave textButton={"Salvar"} />
+            <ButtomComponentClear textButton={"Novo"} />
+            <ButtomComponentDelete textButton={"Deletar"} />
           </div>
         </div>
       </div>

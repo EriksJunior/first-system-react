@@ -15,6 +15,13 @@
   border-left: 5px solid rgb(101, 167, 70);
 }
 
+.inputGroupAgenda {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  padding-top: 16px;
+}
+
 @media screen and (max-width: 750px) {
   .contentInputsAgenda {
     width: 80%;

@@ -1,4 +1,4 @@
-function ButtomComponentSave({ ...props }) {
+function ButtomComponentSave({ textButton, ...props }) {
   return (
     <button
       type="button"
@@ -10,12 +10,12 @@ function ButtomComponentSave({ ...props }) {
       className="btn btn-success btn-sm"
       {...props}
     >
-      Salvar
+      {textButton}
     </button>
   );
 }
 
-function ButtomComponentClear({ ...props }) {
+function ButtomComponentClear({ textButton, ...props }) {
   return (
     <button
       type="button"
@@ -28,12 +28,12 @@ function ButtomComponentClear({ ...props }) {
       }}
       {...props}
     >
-      Novo
+      {textButton}
     </button>
   );
 }
 
-function ButtomComponentDelete({ ...props }) {
+function ButtomComponentDelete({ textButton, ...props }) {
   return (
     <div>
       <button
@@ -48,7 +48,7 @@ function ButtomComponentDelete({ ...props }) {
         }}
         {...props}
       >
-        Deletar
+        {textButton}
       </button>
     </div>
   );
