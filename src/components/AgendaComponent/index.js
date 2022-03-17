@@ -52,7 +52,7 @@ function Agenda() {
 
           <InputSelectComponentCliente
             colSize={"col-sm-4"}
-            labelText={"Status"}
+            labelText={"Situação "}
             disabled
             valueOptions={"Espera"}
           />
