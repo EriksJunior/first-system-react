@@ -42,7 +42,7 @@ function Agenda() {
 
           <InputSelectComponentCliente
             colSize={"col-sm-4"}
-            labelText={"Tipo da Solicitação"}
+            labelText={"Tipo Atendimento"}
           />
 
           <InputSelectComponentCliente
