@@ -7,6 +7,7 @@ function InputComponent({
   propsValue,
   propsSetValue,
   disabledInput,
+  nameInput,
 }) {
   return (
     <div className={colSize}>
@@ -30,6 +31,7 @@ function InputComponent({
           value={propsValue}
           onChange={({ target }) => propsSetValue(target.value)}
           disabled={disabledInput}
+          name={nameInput}
           style={{
             paddingLeft: "5px",
             paddingBottom: "1px",
