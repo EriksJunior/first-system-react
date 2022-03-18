@@ -10,7 +10,17 @@ import RowInputsComponent from "../RowInputsComponent";
 import "./ClienteComponent.css";
 import { useCallback, useEffect, useState } from "react";
 
-// const handleChange = useCallback((e) => {}, []);
+const [cliente, setCliente] = useState({});
+
+const handleChange = useCallback(
+  (e) => {
+    setCliente({
+      ...cliente,
+      [e.currentTarget.name]: e.currentTarget.value,
+    });
+  },
+  [cliente]
+);
 
 async function saveCliente() {
   const { data } = await ClienteRegisterFunctions.saveCliente();
