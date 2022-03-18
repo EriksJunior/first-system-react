@@ -1,16 +1,14 @@
-import "./ClienteComponent.css";
-import RowInputsComponent from "../RowInputsComponent";
-import { InputComponent } from "../FormComponents";
+import Agenda from "../AgendaComponent";
 import {
-  ButtomComponentSave,
   ButtomComponentClear,
   ButtomComponentDelete,
+  ButtomComponentSave,
 } from "../ButtomComponent";
-import Agenda from "../AgendaComponent";
+import { InputComponent } from "../FormComponents";
+import RowInputsComponent from "../RowInputsComponent";
+import "./ClienteComponent.css";
 
 function Cliente() {
-
-
   return (
     <div className="containerGeralCliente">
       <div className="containerInputsCliente">

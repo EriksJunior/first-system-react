@@ -1,10 +1,5 @@
 import { http } from "../../config/index";
-import {
-  toastError,
-  toastSave,
-  toastUpdate,
-  toastDelete,
-} from "../../utils/toast/index";
+import { toastError } from "../../utils/toast/index";
 
 class ClienteRegisterFunctions {
   async saveCliente(dataCliente) {
