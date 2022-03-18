@@ -17,4 +17,4 @@ const toastDelete = (msg) => {
   return toast.error(msg);
 };
 
-export default { toastError, toastSave, toastUpdate, toastDelete };
+export { toastError, toastSave, toastUpdate, toastDelete };

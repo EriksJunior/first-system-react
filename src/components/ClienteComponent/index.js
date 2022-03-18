@@ -1,3 +1,4 @@
+import ClienteRegisterFunctions from "../../service/ClienteService";
 import Agenda from "../AgendaComponent";
 import {
   ButtomComponentClear,
@@ -7,6 +8,10 @@ import {
 import { InputComponent } from "../FormComponents";
 import RowInputsComponent from "../RowInputsComponent";
 import "./ClienteComponent.css";
+
+async function saveCliente() {
+  const { data } = await ClienteRegisterFunctions.saveCliente();
+}
 
 function Cliente() {
   return (
