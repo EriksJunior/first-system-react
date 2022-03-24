@@ -8,6 +8,7 @@ function InputComponent({
   propsSetValue,
   disabledInput,
   nameInput,
+  onChange,
 }) {
   return (
     <div className={colSize}>
@@ -29,7 +30,7 @@ function InputComponent({
           id="inputGroup-sizing-sm"
           hidden={hiddenInput}
           value={propsValue}
-          onChange={({ target }) => propsSetValue(target.value)}
+          onChange={onChange}
           disabled={disabledInput}
           name={nameInput}
           style={{

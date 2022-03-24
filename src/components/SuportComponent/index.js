@@ -262,9 +262,16 @@ function Suporte() {
               justifyContent: "end",
             }}
           >
-            <ButtomComponentSave onClick={() => saveAndUpdateDataSuporte()} />
-            <ButtomComponentClear onClick={() => clearDataSuporte()} />
+            <ButtomComponentSave
+              textButton={"Salvar"}
+              onClick={() => saveAndUpdateDataSuporte()}
+            />
+            <ButtomComponentClear
+              textButton={"Novo"}
+              onClick={() => clearDataSuporte()}
+            />
             <ButtomComponentDelete
+              textButton={"Deletar"}
               data-bs-toggle={idSuporte === "" ? "" : "modal"}
               data-bs-target={idSuporte === "" ? "" : "#exampleModal"}
               onClick={() => checkIfThereIsAnId()}
