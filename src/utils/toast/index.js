@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const toastError = (error) => {
-  return toast.error(error.message);
+  return toast.error(error);
 };
 
 const toastSave = (msg) => {

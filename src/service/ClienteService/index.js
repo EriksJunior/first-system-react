@@ -4,11 +4,11 @@ import { toastError } from "../../utils/toast/index";
 class ClienteRegisterFunctions {
   async saveCliente(dataCliente) {
     try {
-      console.log(dataCliente, ' serviceeeeee')
+      console.log(dataCliente, " serviceeeeee");
       const { data } = await http.post("/cliente", dataCliente);
       return data;
     } catch (error) {
-      return toastError(error.message);
+      return toastError(error.response.data.errors[0].message);
     }
   }
 }

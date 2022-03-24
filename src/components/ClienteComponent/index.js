@@ -10,32 +10,37 @@ import RowInputsComponent from "../RowInputsComponent";
 import "./ClienteComponent.css";
 import { useCallback, useEffect, useState } from "react";
 
-
-
 function Cliente() {
-
   const [cliente, setCliente] = useState({
-    id: '',
-    nome: '',
-    razaoSocial: '',
-    endereco: '',
-    bairro: '',
-    cidade: '',
-    numero: '' || null,
-    uf: '',
-    cep: '',
-    cpf_cnpj: '',
+    id: "",
+    nome: "",
+    razaoSocial: "",
+    endereco: "",
+    bairro: "",
+    cidade: "",
+    numero: "" || null,
+    uf: "",
+    cep: "",
+    cpf_cnpj: "",
   });
 
-  const handleChange = useCallback((e) => {
-    setCliente({
-      ...cliente, [e.currentTarget.name]: e.currentTarget.value
-    })
-  }, [cliente])
+  const handleChange = useCallback(
+    (e) => {
+      setCliente({
+        ...cliente,
+        [e.currentTarget.name]: e.currentTarget.value,
+      });
+    },
+    [cliente]
+  );
 
   async function saveCliente() {
-    const { data } = await ClienteRegisterFunctions.saveCliente(cliente);
-    console.log(data, 'ovooooo');
+    try {
+      const { data } = await ClienteRegisterFunctions.saveCliente(cliente);
+      setCliente({ ...cliente }, (cliente.id = data.id));
+    } catch (error) {
+      console.log(error, "ovooooo");
+    }
   }
 
   return (
@@ -109,7 +114,10 @@ function Cliente() {
             ></InputComponent>
           </RowInputsComponent>
           <div className="contentGroupButtons">
-            <ButtomComponentSave onClick={() => saveCliente()} textButton={"Salvar"} />
+            <ButtomComponentSave
+              onClick={() => saveCliente()}
+              textButton={"Salvar"}
+            />
             <ButtomComponentClear textButton={"Novo"} />
             <ButtomComponentDelete textButton={"Deletar"} />
           </div>
