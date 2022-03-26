@@ -56,7 +56,6 @@ function Suporte() {
       return (old += current.total);
     }, 0);
     setTotalTechnicians(valueTec);
-    console.log(valueTec);
   }, [dataTechnical]);
 
   function proximaPagina() {

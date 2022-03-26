@@ -16,7 +16,6 @@ class ClienteRegisterFunctions {
 
   async updateCliente(idCliente, dataCliente) {
     try {
-      console.log(idCliente, dataCliente);
       const { data } = await http.put(`/cliente/${idCliente}`, dataCliente);
       toast("Cliente Atualizado!");
       return data;
