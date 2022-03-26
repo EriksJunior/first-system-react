@@ -9,6 +9,8 @@ import { InputComponent } from "../FormComponents";
 import RowInputsComponent from "../RowInputsComponent";
 import "./ClienteComponent.css";
 import { useCallback, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Cliente() {
   const [cliente, setCliente] = useState({
@@ -34,13 +36,19 @@ function Cliente() {
     [cliente]
   );
 
+  function handleSaveAndUpdate() {
+    cliente.id === "" ? saveCliente() : updateCliente();
+  }
+
   async function saveCliente() {
-    try {
-      const { data } = await ClienteRegisterFunctions.saveCliente(cliente);
-      setCliente({ ...cliente }, (cliente.id = data.id));
-    } catch (error) {
-      console.log(error, "ovooooo");
+    const data = await ClienteRegisterFunctions.saveCliente(cliente);
+    if (data.status === 200) {
+      setCliente({ ...cliente, id: data.data.id });
     }
+  }
+
+  async function updateCliente() {
+    await ClienteRegisterFunctions.updateCliente(cliente.id, cliente);
   }
 
   return (
@@ -115,7 +123,7 @@ function Cliente() {
           </RowInputsComponent>
           <div className="contentGroupButtons">
             <ButtomComponentSave
-              onClick={() => saveCliente()}
+              onClick={() => handleSaveAndUpdate()}
               textButton={"Salvar"}
             />
             <ButtomComponentClear textButton={"Novo"} />
