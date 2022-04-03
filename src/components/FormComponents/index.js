@@ -30,7 +30,7 @@ function InputComponent({
           id="inputGroup-sizing-sm"
           hidden={hiddenInput}
           value={propsValue}
-          onChange={onChange}
+          onChange={({ target }) => propsSetValue(target.value)}
           disabled={disabledInput}
           name={nameInput}
           style={{
@@ -138,9 +138,56 @@ function TextAreaComponent({ labelText, colSize, ...props }) {
   );
 }
 
+function InputComponentAgenda({
+  hiddenInput,
+  divHidden,
+  colSize,
+  labelText,
+  typeInput,
+  propsValue,
+  disabledInput,
+  nameInput,
+  onChange,
+}) {
+  return (
+    <div className={colSize}>
+      <div
+        className="input-group-sm"
+        style={{ marginLeft: "10px" }}
+        hidden={divHidden}
+      >
+        <label
+          className="col-form-label"
+          style={{ fontSize: "12px", marginLeft: "2px" }}
+        >
+          <strong>{labelText}</strong>
+        </label>
+        <input
+          type={typeInput}
+          className="form-control"
+          size="sm"
+          id="inputGroup-sizing-sm"
+          hidden={hiddenInput}
+          value={propsValue}
+          onChange={onChange}
+          disabled={disabledInput}
+          name={nameInput}
+          style={{
+            paddingLeft: "5px",
+            paddingBottom: "1px",
+            paddingTop: "1px",
+            paddingRight: "5px",
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
 export {
   InputComponent,
   InputSelectComponent,
   InputSelectComponentCliente,
   TextAreaComponent,
+  InputComponentAgenda
 };
