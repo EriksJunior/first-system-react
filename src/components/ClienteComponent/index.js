@@ -8,7 +8,7 @@ import {
 import { InputComponentAgenda } from "../FormComponents";
 import RowInputsComponent from "../RowInputsComponent";
 import "./ClienteComponent.css";
-import { useCallback,  useState } from "react";
+import { useCallback, useState } from "react";
 // import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -26,15 +26,9 @@ function Cliente() {
     cpf_cnpj: "",
   });
 
-  const handleChange = useCallback(
-    (e) => {
-      setCliente({
-        ...cliente,
-        [e.currentTarget.name]: e.currentTarget.value,
-      });
-    },
-    [cliente]
-  );
+  const handleChange = useCallback((e) => {
+    setCliente({ ...cliente, [e.currentTarget.name]: e.currentTarget.value });
+  }, [cliente]);
 
   function handleSaveAndUpdate() {
     cliente.id === "" ? saveCliente() : updateCliente();
@@ -61,63 +55,63 @@ function Cliente() {
             <InputComponentAgenda
               colSize={"col-sm-3"}
               labelText={"Nome Fantasia"}
-              nameInput={"nome"}
+              name={"nome"}
               onChange={handleChange}
             ></InputComponentAgenda>
 
             <InputComponentAgenda
               colSize={"col-sm-3"}
               labelText={"Razão Social"}
-              nameInput={"razaoSocial"}
+              name={"razaoSocial"}
               onChange={handleChange}
             ></InputComponentAgenda>
 
             <InputComponentAgenda
               colSize={"col-sm-2"}
               labelText={"CPF/CNPJ"}
-              nameInput={"cpf_cnpj"}
+              name={"cpf_cnpj"}
               onChange={handleChange}
             ></InputComponentAgenda>
 
             <InputComponentAgenda
               colSize={"col-sm-4"}
               labelText={"Endereço"}
-              nameInput={"endereco"}
+              name={"endereco"}
               onChange={handleChange}
             ></InputComponentAgenda>
 
             <InputComponentAgenda
               colSize={"col-sm-3"}
               labelText={"Bairro"}
-              nameInput={"bairro"}
+              name={"bairro"}
               onChange={handleChange}
             ></InputComponentAgenda>
 
             <InputComponentAgenda
               colSize={"col-sm-1"}
               labelText={"N°"}
-              nameInput={"numero"}
+              name={"numero"}
               onChange={handleChange}
             ></InputComponentAgenda>
 
             <InputComponentAgenda
               colSize={"col-sm-2"}
               labelText={"Cidade"}
-              nameInput={"cidade"}
+              name={"cidade"}
               onChange={handleChange}
             ></InputComponentAgenda>
 
             <InputComponentAgenda
               colSize={"col-sm-1"}
               labelText={"UF"}
-              nameInput={"uf"}
+              name={"uf"}
               onChange={handleChange}
             ></InputComponentAgenda>
 
             <InputComponentAgenda
               colSize={"col-sm-2"}
               labelText={"CEP"}
-              nameInput={"cep"}
+              name={"cep"}
               onChange={handleChange}
             ></InputComponentAgenda>
           </RowInputsComponent>

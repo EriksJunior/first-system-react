@@ -8,7 +8,6 @@ function InputComponent({
   propsSetValue,
   disabledInput,
   nameInput,
-  onChange,
 }) {
   return (
     <div className={colSize}>
@@ -139,15 +138,10 @@ function TextAreaComponent({ labelText, colSize, ...props }) {
 }
 
 function InputComponentAgenda({
-  hiddenInput,
   divHidden,
   colSize,
   labelText,
-  typeInput,
-  propsValue,
-  disabledInput,
-  nameInput,
-  onChange,
+  ...props
 }) {
   return (
     <div className={colSize}>
@@ -163,15 +157,10 @@ function InputComponentAgenda({
           <strong>{labelText}</strong>
         </label>
         <input
-          type={typeInput}
           className="form-control"
           size="sm"
           id="inputGroup-sizing-sm"
-          hidden={hiddenInput}
-          value={propsValue}
-          onChange={onChange}
-          disabled={disabledInput}
-          name={nameInput}
+          {...props}
           style={{
             paddingLeft: "5px",
             paddingBottom: "1px",

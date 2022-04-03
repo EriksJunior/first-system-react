@@ -46,7 +46,7 @@ function Suporte() {
     nivel: nivel,
     funcao: funcao,
   };
-  
+
 
   useEffect(() => {
     fetchTechnicalData();
@@ -355,7 +355,7 @@ function Suporte() {
                             className="page-link"
                             aria-label="Previous"
                             onClick={paginaAnterior}
-                            
+
                           >
                             <span aria-hidden="true">&laquo;</span>
                           </p>
@@ -377,7 +377,7 @@ function Suporte() {
                             className="page-link"
                             onClick={proximaPagina}
                             aria-label="Next"
-                            
+
                           >
                             <span aria-hidden="true">&raquo;</span>
                           </p>
